@@ -3,17 +3,18 @@ import React from "react";
 import { View } from "react-native";
 import { UbuntuText } from "./Texts";
 
-export function UpdateListItem({ weight, style, children, ...restProps }) {
+export function UpdateListItem() {
   return (
     <View
       style={{
         height: 80,
         backgroundColor: "white",
-        shadowColor: "rgba(0,0,0,0.5)",
-        elevation: 5,
         borderRadius: 8,
         flexDirection: "row",
         overflow: "hidden",
+        marginBottom: 10,
+        borderWidth: 1,
+        borderColor: "rgba(0, 0, 0, .1)",
       }}
     >
       <View

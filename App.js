@@ -1,23 +1,27 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View, Platform } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, ScrollView } from "react-native";
 import SearchIconSvg from "./assets/search.svg";
+import CommunicationsFilled from "./assets/communications-filled.svg";
+import ResultsStroked from "./assets/results-stroked.svg";
 import { UbuntuText } from "./components/Texts";
 import { UpdateListItem } from "./components/UpdateListItem";
+import { Nav } from "./components/Nav";
 // import { Platform } from "react-native";
+// CustomText.tsx
+import CommunicationsFilledSvg from "./assets/communications-filled.svg";
+import { Image } from "expo-image";
 
 export default function App() {
   return (
     <>
       <StatusBar style="auto" />
       <SafeAreaView
-        style={
-          {
-            // flex: 1,
-            // backgroundColor: "#fff",
-            // alignItems: "center",
-            // justifyContent: "center",
-          }
-        }
+        style={{
+          flex: 1,
+          // backgroundColor: "#fff",
+          // alignItems: "center",
+          // justifyContent: "center",
+        }}
       >
         <View
           style={{
@@ -96,10 +100,14 @@ export default function App() {
             </View>
           </View>
         </View>
-        <View
+        <ScrollView
           style={{
-            padding: 16,
-            gap: 16,
+            padding: 10,
+            // paddingBottom: 0,
+            // gap: 16,
+            // overflow: "scroll",
+            flex: 1,
+            height: "100%",
           }}
         >
           <UpdateListItem />
@@ -108,6 +116,66 @@ export default function App() {
           <UpdateListItem />
           <UpdateListItem />
           <UpdateListItem />
+          <UpdateListItem />
+          <UpdateListItem />
+          <UpdateListItem />
+          <UpdateListItem />
+          <UpdateListItem />
+          <UpdateListItem />
+          <UpdateListItem />
+          <UpdateListItem />
+          <View style={{ height: 16 }} />
+        </ScrollView>
+        <View
+          style={{
+            backgroundColor: "white",
+            shadowColor: "rgba(0, 0, 0, 1)",
+            shadowOffset: {
+              width: 0,
+              height: 1,
+            },
+            shadowOpacity: 0.22,
+            shadowRadius: 2.22,
+
+            borderTopWidth: 2,
+            borderColor: "rgba(176, 176, 176, .1)",
+            flexDirection: "row",
+            // width: "100%",
+            height: 60,
+          }}
+        >
+          <View
+            style={{
+              flex: 1,
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <CommunicationsFilledSvg />
+            <UbuntuText>Communications</UbuntuText>
+          </View>
+          <View
+            style={{
+              width: 2,
+              backgroundColor: "rgba(238, 238, 238, 0.93)",
+              height: "100%",
+            }}
+          />
+          <View
+            style={{
+              justifyContent: "center",
+              width: 65,
+              alignItems: "center",
+            }}
+          >
+            <Image
+              style={{
+                width: 28,
+                height: 28,
+              }}
+              source={require("./assets/results-stroked.png")}
+            />
+          </View>
         </View>
       </SafeAreaView>
     </>
