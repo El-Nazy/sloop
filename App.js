@@ -5,11 +5,13 @@ import CommunicationsFilled from "./assets/communications-filled.svg";
 import ResultsStroked from "./assets/results-stroked.svg";
 import { UbuntuText } from "./components/Texts";
 import { UpdateListItem } from "./components/UpdateListItem";
+import { ClassOrGroupListItem } from "./components/ClassOrGroupListItem";
 import { Nav } from "./components/Nav";
 // import { Platform } from "react-native";
 // CustomText.tsx
 import CommunicationsFilledSvg from "./assets/communications-filled.svg";
 import { Image } from "expo-image";
+import { PeopleListItem } from "./components/PeopleListItem";
 
 export default function App() {
   return (
@@ -100,11 +102,11 @@ export default function App() {
             </View>
           </View>
         </View>
-        <ScrollView
+        {/* <ScrollView
           style={{
             padding: 10,
             // paddingBottom: 0,
-            // gap: 16,
+            // gap: 10,
             // overflow: "scroll",
             flex: 1,
             height: "100%",
@@ -124,8 +126,60 @@ export default function App() {
           <UpdateListItem />
           <UpdateListItem />
           <UpdateListItem />
-          <View style={{ height: 16 }} />
+          <View style={{ height: 10 }} />
+        </ScrollView> */}
+        {/* <ScrollView
+          style={{
+            padding: 10,
+            flex: 1,
+            height: "100%",
+          }}
+        >
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <ClassOrGroupListItem />
+          <View style={{ height: 10 }} />
+        </ScrollView> */}
+        <ScrollView
+          style={{
+            padding: 10,
+            flex: 1,
+            height: "100%",
+          }}
+        >
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <PeopleListItem />
+          <View style={{ height: 10 }} />
         </ScrollView>
+
         <View
           style={{
             backgroundColor: "white",
