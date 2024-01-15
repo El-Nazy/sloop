@@ -10,7 +10,7 @@ export function UnreadCount() {
       style={{
         backgroundColor: "#F71E2E",
         // padding: 3,
-        borderRadius: 8,
+        borderRadius: 17 / 2,
         width: 16,
         height: 16,
         justifyContent: "center",
@@ -22,6 +22,7 @@ export function UnreadCount() {
         style={{
           fontSize: 9,
           color: "white",
+          lineHeight: 9,
         }}
       >
         99
