@@ -10,13 +10,29 @@ export function Nav() {
   return (
     <View
       style={{
+        backgroundColor: "white",
+        shadowColor: "rgba(0, 0, 0, 1)",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+
+        borderTopWidth: 2,
+        borderColor: "rgba(176, 176, 176, .1)",
         flexDirection: "row",
-        width: "100%",
+        // width: "100%",
         height: 60,
-        // flex: 1,
       }}
     >
-      <View>
+      <View
+        style={{
+          flex: 1,
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <CommunicationsFilledSvg />
         <UbuntuText>Communications</UbuntuText>
       </View>
@@ -30,7 +46,8 @@ export function Nav() {
       <View
         style={{
           justifyContent: "center",
-          // alignItems: "center",
+          width: 65,
+          alignItems: "center",
         }}
       >
         <Image

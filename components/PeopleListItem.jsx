@@ -13,7 +13,7 @@ export function PeopleListItem() {
     <View
       style={{
         marginBottom: 10,
-        gap: 16,
+        gap: 10,
         flexDirection: "row",
         alignItems: "center",
       }}
