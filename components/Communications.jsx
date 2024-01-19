@@ -10,7 +10,7 @@ export function Communications() {
         style={{
           // width: "100%",
           // height: 120,
-          paddingTop: 16,
+          // paddingTop: 16,
           backgroundColor: "white",
           shadowColor: "rgba(0, 0, 0, 0.5)",
           shadowOffset: {
@@ -26,7 +26,7 @@ export function Communications() {
         <View>
           <View
             style={{
-              margin: 16,
+              padding: 16,
               flexDirection: "row",
               alignItems: "center",
               justifyContent: "space-between",

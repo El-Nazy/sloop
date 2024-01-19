@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { Home } from "./components/Home";
+import { UpdateView } from "./components/UpdateView";
 
 export default function App() {
   return (
@@ -9,12 +10,14 @@ export default function App() {
       <SafeAreaView
         style={{
           flex: 1,
+          // paddingTop: 25,
           // backgroundColor: "#fff",
           // alignItems: "center",
           // justifyContent: "center",
         }}
       >
-        <Home />
+        {/* <Home /> */}
+        <UpdateView />
       </SafeAreaView>
     </>
   );

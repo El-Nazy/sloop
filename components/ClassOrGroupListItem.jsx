@@ -6,6 +6,7 @@ import { UnreadCount } from "./UnreadCount";
 import { ItemDateTime } from "./ItemDateTime";
 import { ChatItemTitle } from "./ChatItemTitle";
 import { ChatPreview } from "./ChatPreview";
+import { Tag } from "./Tag";
 
 export function ClassOrGroupListItem() {
   return (
@@ -33,24 +34,7 @@ export function ClassOrGroupListItem() {
           }}
         >
           <ChatItemTitle />
-          <View
-            style={{
-              padding: 3,
-              backgroundColor: "#7A1EF7",
-              borderRadius: 4,
-            }}
-          >
-            <UbuntuText
-              weight={700}
-              style={{
-                fontSize: 8,
-                color: "white",
-                lineHeight: 8,
-              }}
-            >
-              CLASS
-            </UbuntuText>
-          </View>
+          <Tag />
         </View>
         <ItemDateTime />
       </View>
