@@ -25,6 +25,7 @@ export function UbuntuTextInput({ weight, style, ...restProps }) {
       style={[
         {
           fontFamily: fontWeights[weight],
+          fontSize: 16,
         },
         style,
       ]}

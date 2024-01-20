@@ -232,7 +232,7 @@ export function PrivateChatView() {
           }}
         >
           <UbuntuTextInput
-            style={{ flex: 1, alignSelf: "flex-end" }}
+            style={{ flex: 1 }}
             placeholder="Type Your Message"
             multiline
           />
