@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View, StatusBar } from "react-native";
 import BackIconSvg from "../assets/back-icon.svg";
 import SearchIconSvg from "../assets/search.svg";
 import CommentStrokedSvg from "../assets/comment-stroked.svg";
@@ -7,6 +7,7 @@ import { UbuntuText } from "./Texts";
 import { Image } from "expo-image";
 import { Tag } from "./Tag";
 import { LinearGradient } from "expo-linear-gradient";
+import { Shadow } from "./Shadow";
 
 export function UpdateView() {
   return (
@@ -14,66 +15,76 @@ export function UpdateView() {
       <View
         style={{
           backgroundColor: "white",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          padding: 16,
-          paddingTop: 25 + 16,
-          alignItems: "center",
-          elevation: 5,
+          paddingHorizontal: 16,
+          marginTop: StatusBar.currentHeight,
+          // height: 60,
+          paddingVertical: 12,
+          justifyContent: "flex-end",
         }}
       >
+        <Shadow />
         <View
           style={{
+            width: "100%",
             flexDirection: "row",
-            justifyContent: "space-between",
             alignItems: "center",
-            gap: 16,
+            justifyContent: "space-between",
           }}
         >
-          <BackIconSvg />
           <View
             style={{
               flexDirection: "row",
               justifyContent: "space-between",
               alignItems: "center",
-              gap: 14,
+              gap: 12,
             }}
           >
+            <BackIconSvg />
             <View
               style={{
-                height: 44,
-                width: 44,
+                flexDirection: "row",
+                justifyContent: "space-between",
                 alignItems: "center",
-                justifyContent: "center",
-                backgroundColor: "rgba(238, 238, 238, 0.93)",
-                borderRadius: 12,
+                gap: 12,
               }}
             >
+              <View
+                style={{
+                  height: 44,
+                  width: 44,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "rgba(238, 238, 238, 0.93)",
+                  borderRadius: 12,
+                }}
+              >
+                <UbuntuText
+                  weight={700}
+                  style={{
+                    fontSize: 20,
+                  }}
+                >
+                  LS
+                </UbuntuText>
+              </View>
               <UbuntuText
                 weight={700}
                 style={{
-                  fontSize: 20,
+                  fontSize: 22,
                 }}
               >
-                LS
+                Long School Na...
               </UbuntuText>
             </View>
-            <UbuntuText
-              weight={700}
-              style={{
-                fontSize: 22,
-              }}
-            >
-              Long School Na...
-            </UbuntuText>
           </View>
+          <SearchIconSvg />
         </View>
-        <SearchIconSvg />
       </View>
       <ScrollView>
         <View
           style={{
-            padding: 16,
+            paddingTop: 12,
+            paddingBottom: 16,
             paddingHorizontal: 36,
             gap: 16,
           }}
@@ -243,17 +254,6 @@ export function UpdateView() {
           backgroundColor: "white",
         }}
       >
-        <LinearGradient
-          // Background Linear Gradient
-          colors={["transparent", "rgba(80,80,80,0.1)"]}
-          style={{
-            height: 10,
-            position: "absolute",
-            width: "100%",
-            left: 0,
-            top: -8,
-          }}
-        />
         <View
           style={{
             alignItems: "center",
@@ -276,6 +276,7 @@ export function UpdateView() {
             1.1K
           </UbuntuText>
         </View>
+        <Shadow isUpper={true} />
       </View>
     </>
   );
