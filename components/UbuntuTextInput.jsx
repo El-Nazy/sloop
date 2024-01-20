@@ -1,8 +1,7 @@
 // CustomText.tsx
 import React from "react";
-import { Text } from "react-native";
+import { TextInput } from "react-native";
 import { useFonts } from "expo-font";
-import { colors } from "../utils/constants";
 
 const fontWeights = {
   400: "Ubuntu-Regular",
@@ -10,7 +9,7 @@ const fontWeights = {
   700: "Ubuntu-Bold",
 };
 
-export function UbuntuText({ weight, style, children, ...restProps }) {
+export function UbuntuTextInput({ weight, style, ...restProps }) {
   const [fontsLoaded, fontError] = useFonts({
     "Ubuntu-Regular": require("../assets/fonts/Ubuntu-Regular.ttf"),
     "Ubuntu-Medium": require("../assets/fonts/Ubuntu-Medium.ttf"),
@@ -22,17 +21,14 @@ export function UbuntuText({ weight, style, children, ...restProps }) {
   }
 
   return (
-    <Text
+    <TextInput
       style={[
         {
           fontFamily: fontWeights[weight],
-          color: colors.black,
         },
         style,
       ]}
       {...restProps}
-    >
-      {children}
-    </Text>
+    />
   );
 }

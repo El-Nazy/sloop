@@ -6,7 +6,6 @@ import LikeStrokedSvg from "../assets/like-stroked.svg";
 import { UbuntuText } from "./Texts";
 import { Image } from "expo-image";
 import { Tag } from "./Tag";
-import { LinearGradient } from "expo-linear-gradient";
 import { Shadow } from "./Shadow";
 
 export function UpdateView() {

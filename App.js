@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet } from "react-native";
 import { Home } from "./components/Home";
-import { UpdateView } from "./components/UpdateView";
+import { PrivateChatView } from "./components/PrivateChatView";
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
         }}
       >
         {/* <Home /> */}
-        <UpdateView />
+        <PrivateChatView />
       </SafeAreaView>
     </>
   );
