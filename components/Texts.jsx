@@ -10,7 +10,7 @@ const fontWeights = {
   700: "Ubuntu-Bold",
 };
 
-export function UbuntuText({ weight, style, children, ...restProps }) {
+export function UbuntuText({ weight = 400, style, children, ...restProps }) {
   const [fontsLoaded, fontError] = useFonts({
     "Ubuntu-Regular": require("../assets/fonts/Ubuntu-Regular.ttf"),
     "Ubuntu-Medium": require("../assets/fonts/Ubuntu-Medium.ttf"),
@@ -34,5 +34,21 @@ export function UbuntuText({ weight, style, children, ...restProps }) {
     >
       {children}
     </Text>
+  );
+}
+
+export function H2({ props, children }) {
+  return (
+    <UbuntuText
+      weight={500}
+      style={{
+        fontSize: 20,
+        lineHeight: 24,
+        // textAlign: "center",
+      }}
+      {...props}
+    >
+      {children}
+    </UbuntuText>
   );
 }
