@@ -1,7 +1,7 @@
 import { Nav } from "./Nav";
 import { Communications } from "./Communications";
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { SafeAreaView } from "react-native";
 import { colors } from "../utils/constants";
 
 export function Home() {

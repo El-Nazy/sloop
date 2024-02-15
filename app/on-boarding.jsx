@@ -57,7 +57,7 @@ export default function () {
         }}
       >
         <Link
-          href={"/home"}
+          href={"/sign-up"}
           asChild
           style={{
             backgroundColor: colors.purple,

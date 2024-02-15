@@ -109,7 +109,7 @@ export default function () {
         />
       </View>
       <Link
-        href={"/profile-setup"}
+        href={"/initializing"}
         asChild
         style={{
           backgroundColor: colors.purple,

@@ -1,11 +1,5 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet } from "react-native";
-import { Home } from "../components/Home";
-import React, { useCallback, useEffect, useState } from "react";
-import { colors } from "../utils/constants";
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { router } from "expo-router";
+import { StyleSheet } from "react-native";
+import React from "react";
 import { useRootNavigationState, Redirect } from "expo-router";
 
 export default function () {

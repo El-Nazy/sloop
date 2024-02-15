@@ -1,15 +1,6 @@
-import {
-  Button,
-  Pressable,
-  SafeAreaView,
-  TouchableHighlight,
-  TouchableOpacity,
-  StatusBar,
-  View,
-} from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
+import { StatusBar, View } from "react-native";
+import React from "react";
 import { appName, colors } from "../utils/constants";
-import { Image } from "expo-image";
 import { H2, UbuntuText } from "../components/Texts";
 import { Link } from "expo-router";
 import { SafeArea } from "../components/SafeArea";
