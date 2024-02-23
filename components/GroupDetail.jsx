@@ -59,6 +59,11 @@ export function GroupDetail() {
           </View>
           <View style={tw`h-px bg-[#B0B0B0]  w-full `}></View>
         </View>
+        <View style={tw`my-4`}>
+          <UbuntuText weight={500} style={tw`text-[#9C54FD] text-center`}>
+            View all
+          </UbuntuText>
+        </View>
       </ScrollView>
       <Circle style={tw`absolute right-0 bottom-0`} />
     </View>
