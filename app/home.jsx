@@ -11,8 +11,9 @@ import Picture from "../assets/picture.svg";
 import Dotted from "../assets/dotted.svg";
 import Comment from "../assets/comment.svg";
 import Like from "../assets/like.svg";
-import { PostList } from "../components/PostItem";
-import { GroupList } from "../components/GroupList";
+import { PostDetail } from "../components/PostDetail";
+import { GroupDetail } from "../components/GroupDetail";
+import { UpcomingEvent } from "../components/UpcomingEvent";
 
 export default function () {
   return (
@@ -62,7 +63,7 @@ export default function () {
           <UbuntuText>People</UbuntuText>
         </View>
         <View style={tw`flex-1`}>
-          <GroupList />
+          <GroupDetail />
         </View>
       </View>
     </>
