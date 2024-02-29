@@ -15,7 +15,11 @@ export default function () {
   if (!rootNavigationState?.key) return null;
 
   // return <Redirect href={"/on-boarding"} />;
-  return <Redirect href={"/home"} />;
+  // return <Redirect href={"/home"} />;
+  // return <Redirect href={"/welcome-group"} />;
+  // return <Redirect href={"/event"} />;
+  // return <Redirect href={"/chats"} />;
+  return <Redirect href={"/subgroup4"} />;
   // return <Redirect href={"/sign-up"} />;
   // return <Redirect href={"/verify"} />;
   // return <Redirect href={"/profile-setup"} />;
