@@ -19,7 +19,7 @@ export default function () {
   // return <Redirect href={"/welcome-group"} />;
   // return <Redirect href={"/event"} />;
   // return <Redirect href={"/chats"} />;
-  return <Redirect href={"/eventwelcome"} />;
+  return <Redirect href={"/Eventroll"} />;
   // return <Redirect href={"/sign-up"} />;
   // return <Redirect href={"/verify"} />;
   // return <Redirect href={"/profile-setup"} />;
