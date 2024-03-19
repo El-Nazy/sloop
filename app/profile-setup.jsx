@@ -8,16 +8,64 @@ import {
   View,
 } from "react-native";
 import React, { useCallback, useEffect, useState } from "react";
-import { appName, colors } from "../utils/constants";
+import { apiBaseUrl, colors } from "../utils/constants";
+import { handleImageSelection } from "../utils/media-selection";
 import { Image } from "expo-image";
 import { H2, UbuntuText } from "../components/Texts";
-import { Link } from "expo-router";
+import { Link, useLocalSearchParams, router } from "expo-router";
 import { SafeArea } from "../components/SafeArea";
 import { CustomButton } from "../components/Buttons";
 import { UbuntuTextInput } from "../components/UbuntuTextInput";
 import BackArrowSvg from "../assets/back-arrow.svg";
+import * as ImagePicker from "expo-image-picker";
+import axios from "axios";
+import { storeUser } from "../utils/user-utils";
 
 export default function () {
+  const { emailVerificationId } = useLocalSearchParams();
+  console.log("emver", emailVerificationId);
+  // todo: switch to ref to avoid the rerenders onChangeText
+  const [name, setName] = useState("");
+  const [bio, setBio] = useState("");
+  const [profileImageUri, setProfileImageUri] = useState("");
+
+  const handleSubmit = async () => {
+    console.log("submitting");
+    const formData = new FormData();
+
+    if (profileImageUri)
+      formData.append("profileImage", {
+        uri: profileImageUri,
+        type: "image/jpeg",
+        name: "image.jpg",
+        filename: profileImageUri,
+      });
+
+    if (bio) formData.append("bio", bio); // Another example
+
+    // todo: demand name
+    if (!name) return alert("you must specify your name");
+    formData.append("name", name); // Example additional field
+    formData.append("emailVerificationId", emailVerificationId); // Example additional field
+
+    try {
+      const response = await axios.post(apiBaseUrl + "/users", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Accept: "application/json",
+        },
+      });
+      console.log(response.data);
+      router.replace("welcome-page");
+      storeUser(response.data);
+    } catch (error) {
+      console.error(error);
+      console.error("err", JSON.stringify(error));
+      // return null;
+    }
+    console.log("submited");
+  };
+
   return (
     <SafeArea>
       <View
@@ -75,6 +123,8 @@ export default function () {
           <UbuntuTextInput
             placeholder="Enter your name"
             placeholderTextColor={colors.gray2}
+            value={name}
+            onChangeText={setName}
           />
         </View>
         <View
@@ -90,27 +140,37 @@ export default function () {
           <UbuntuTextInput
             placeholder="Enter a bio"
             placeholderTextColor={colors.gray2}
+            value={bio}
+            onChangeText={setBio}
           />
         </View>
       </View>
-
       <View
         style={{
           marginTop: 30,
           marginBottom: 60,
         }}
       >
-        <Image
-          style={{
-            width: 78,
-            height: 78,
+        <CustomButton
+          onPress={async () => {
+            setProfileImageUri(await handleImageSelection());
           }}
-          source={require("../assets/profile-image-placeholder.png")}
-        />
+          style={{ borderRadius: 78 / 2 }}
+        >
+          <Image
+            style={{
+              width: 78,
+              height: 78,
+            }}
+            source={
+              profileImageUri ||
+              require("../assets/profile-image-placeholder.png")
+            }
+          />
+        </CustomButton>
       </View>
-      <Link
-        href={"/initializing"}
-        asChild
+
+      <CustomButton
         style={{
           backgroundColor: colors.purple,
           borderRadius: 15,
@@ -118,20 +178,19 @@ export default function () {
           justifyContent: "center",
           height: 30,
         }}
+        onPress={handleSubmit}
       >
-        <CustomButton>
-          <UbuntuText
-            weight={500}
-            style={{
-              fontSize: 14,
-              lineHeight: 14.4,
-              color: colors.white,
-            }}
-          >
-            CONTINUE
-          </UbuntuText>
-        </CustomButton>
-      </Link>
+        <UbuntuText
+          weight={500}
+          style={{
+            fontSize: 14,
+            lineHeight: 14.4,
+            color: colors.white,
+          }}
+        >
+          CONTINUE
+        </UbuntuText>
+      </CustomButton>
     </SafeArea>
   );
 }

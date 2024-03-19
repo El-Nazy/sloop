@@ -37,7 +37,7 @@ export default function () {
           marginBottom: 52,
         }}
       >
-        <UbuntuText
+        {/* <UbuntuText
           style={{
             fontSize: 12,
             lineHeight: 14,
@@ -46,7 +46,7 @@ export default function () {
           }}
         >
           Discover, learn, and thrive with a supportive community.
-        </UbuntuText>
+        </UbuntuText> */}
       </View>
       <View
         style={{

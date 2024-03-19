@@ -1,5 +1,5 @@
 import { View, StatusBar } from "react-native";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { colors } from "../utils/constants";
 import { Image } from "expo-image";
 import { UbuntuText } from "../components/Texts";
@@ -8,7 +8,19 @@ import { SafeArea } from "../components/SafeArea";
 import { CustomButton } from "../components/Buttons";
 import LoadingIconSvg from "../assets/white-stroked-loading-icon.svg";
 
+import * as SecureStore from "expo-secure-store";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 export default function () {
+  const [userImageUrl, setUserImageUrl] = useState("");
+  AsyncStorage.getItem("user").then((user) => {
+    console.log(user);
+    setUserImageUrl(JSON.parse(user).profileImageUrl);
+    // console.log(userImage);
+  });
+  // useEffect(() => {
+  //   async () => {};
+  // }, [userImage]);
   return (
     <SafeArea backgroundColor={colors.purple} barStyle="light">
       <View
@@ -29,7 +41,7 @@ export default function () {
             width: "100%",
             height: "100%",
           }}
-          source={require("../assets/profileImage.png")}
+          source={userImageUrl || require("../assets/profileImage.png")}
         />
       </View>
       <View style={{ justifyContent: "center", flex: 1 }}>

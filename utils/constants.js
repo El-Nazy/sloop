@@ -18,3 +18,6 @@ export const colors = Object.freeze({
 });
 
 export const appName = "sLOOP";
+
+export const apiBaseUrl = "https://rabbit-honest-ibex.ngrok-free.app/api/v1";
+// export const apiBaseUrl = "https://google.com";

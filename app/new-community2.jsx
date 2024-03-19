@@ -1,15 +1,62 @@
 import { View, ScrollView } from "react-native";
-import React from "react";
-import { colors } from "../utils/constants";
+import React, { useState } from "react";
+import { colors, apiBaseUrl } from "../utils/constants";
 import { Image } from "expo-image";
 import { H2, UbuntuText } from "../components/Texts";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { SafeArea } from "../components/SafeArea";
 import { CustomButton } from "../components/Buttons";
 import { UbuntuTextInput } from "../components/UbuntuTextInput";
 import WhiteBackIconSvg from "../assets/white-back-icon.svg";
+import * as SecureStore from "expo-secure-store";
+import axios from "axios";
+import { handleImageSelection } from "../utils/media-selection";
 
 export default function () {
+  const [name, setName] = useState("My Comm");
+  const [handle, setHandle] = useState("hand");
+  const [description, setDescription] = useState("desc");
+  const [logoImageUri, setLogoImageUri] = useState("");
+
+  const handleSubmit = async () => {
+    const formData = new FormData();
+
+    if (logoImageUri)
+      formData.append("logoImage", {
+        uri: logoImageUri,
+        type: "image/jpeg",
+        name: "image.jpg",
+        filename: logoImageUri,
+      });
+
+    if (description) formData.append("description", description); // Another example
+
+    // todo: demand name and handle properly
+    if (!name) return alert("you must specify the community's name");
+    formData.append("name", name); // Example additional field
+    if (!handle) return alert("you must specify the community's handle");
+    formData.append("handle", handle); // Example additional field
+
+    try {
+      const response = await axios.post(apiBaseUrl + "/communities", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+          Accept: "application/json",
+          Authorization: `Bearer ${await SecureStore.getItemAsync(
+            "authToken",
+          )}`,
+        },
+      });
+      console.log(response.data);
+      // router.replace("welcome-page");
+      // SecureStore.setItemAsync("authToken", response.data.authToken);
+      // AsyncStorage.setItem("user", JSON.stringify(response.data.user));
+    } catch (error) {
+      console.error(error);
+      // return null;
+    }
+  };
+
   return (
     <SafeArea statusProps={{ backgroundColor: colors.purple }} barStyle="light">
       <View
@@ -67,19 +114,31 @@ export default function () {
               marginVertical: 30,
             }}
           >
-            <Image
-              style={{
-                width: 110,
-                height: 110,
+            <CustomButton
+              onPress={async () => {
+                setLogoImageUri(await handleImageSelection());
               }}
-              source={require("../assets/profile-image-placeholder.png")}
-            />
+              style={{ borderRadius: 110 / 2 }}
+            >
+              <Image
+                style={{
+                  width: 110,
+                  height: 110,
+                }}
+                source={
+                  logoImageUri ||
+                  require("../assets/profile-image-placeholder.png")
+                }
+              />
+            </CustomButton>
           </View>
 
           <View style={{ width: "100%", gap: 30 }}>
             <UbuntuTextInput
               placeholder="Community name"
               placeholderTextColor={colors.gray2}
+              value={name}
+              onChangeText={setName}
               style={{
                 height: 38,
                 width: "100%",
@@ -91,6 +150,10 @@ export default function () {
             />
             <View
               style={{
+                flexDirection: "row",
+                alignItems: "center",
+                // backgroundColor: "green",
+                // gap: 3,
                 height: 38,
                 width: "100%",
                 borderBottomWidth: 2,
@@ -99,15 +162,20 @@ export default function () {
                 paddingHorizontal: 8,
               }}
             >
+              <UbuntuText style={{ color: colors.gray2 }}>@</UbuntuText>
               <UbuntuTextInput
-                placeholder="Display name"
+                placeholder="community_handle"
                 placeholderTextColor={colors.gray2}
+                value={handle}
+                onChangeText={setHandle}
               />
             </View>
 
             <UbuntuTextInput
               placeholder="Community description"
               placeholderTextColor={colors.gray2}
+              value={description}
+              onChangeText={setDescription}
               multiline
               style={{
                 borderRadius: 12,
@@ -128,9 +196,7 @@ export default function () {
           paddingTop: 20,
         }}
       >
-        <Link
-          href={"/home"}
-          asChild
+        <CustomButton
           style={{
             backgroundColor: colors.purple,
             borderRadius: 12,
@@ -140,20 +206,19 @@ export default function () {
             height: 44,
             width: "100%",
           }}
+          onPress={handleSubmit}
         >
-          <CustomButton>
-            <UbuntuText
-              weight={500}
-              style={{
-                fontSize: 16,
-                lineHeight: 16,
-                color: colors.white,
-              }}
-            >
-              FINISH
-            </UbuntuText>
-          </CustomButton>
-        </Link>
+          <UbuntuText
+            weight={500}
+            style={{
+              fontSize: 16,
+              lineHeight: 16,
+              color: colors.white,
+            }}
+          >
+            FINISH
+          </UbuntuText>
+        </CustomButton>
       </View>
     </SafeArea>
   );
