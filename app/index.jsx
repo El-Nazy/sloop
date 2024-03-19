@@ -10,13 +10,18 @@ export default function () {
   const rootNavigationState = useRootNavigationState();
 
   if (!rootNavigationState?.key) return null;
-  console.log("\n\n\nhere\n\n\n");
-  // return <Redirect href={"/on-boarding"} />;
-  storeUser(
-    JSON.parse(
-      `{"authToken": "eyJhbGciOiJIUzI1NiJ9.NjVkZTA4OTVhYWMyZmNhNzFiMDRhZDZj.Q_CiDOEaX1pPmRyilHGVnKe_geB3FeiNHLvy-7UoBE4", "user": {"__v": 0, "_id": "65de0895aac2fca71b04ad6c", "bio": "bio", "createdAt": "2024-02-27T16:06:45.974Z", "email": "emmanuelchinazangene@gmail.com", "name": "Emma", "profileImageUrl": "https://res.cloudinary.com/duufslee0/image/upload/v1709050004/kilzgc5uex6fzp6whf6o.jpg", "updatedAt": "2024-02-27T16:06:45.974Z"}}`,
-    ),
-  );
+  // console.log("\n\n\nhere\n\n\n");
+  // // return <Redirect href={"/on-boarding"} />;
+  // return <Redirect href={"/home"} />;
+  // return <Redirect href={"/welcome-group"} />;
+  // return <Redirect href={"/event"} />;
+  // return <Redirect href={"/chats"} />;
+  return <Redirect href={"/Eventroll"} />;
+  // storeUser(
+  //   JSON.parse(
+  //     `{"authToken": "eyJhbGciOiJIUzI1NiJ9.NjVkZTA4OTVhYWMyZmNhNzFiMDRhZDZj.Q_CiDOEaX1pPmRyilHGVnKe_geB3FeiNHLvy-7UoBE4", "user": {"__v": 0, "_id": "65de0895aac2fca71b04ad6c", "bio": "bio", "createdAt": "2024-02-27T16:06:45.974Z", "email": "emmanuelchinazangene@gmail.com", "name": "Emma", "profileImageUrl": "https://res.cloudinary.com/duufslee0/image/upload/v1709050004/kilzgc5uex6fzp6whf6o.jpg", "updatedAt": "2024-02-27T16:06:45.974Z"}}`,
+  //   ),
+  // );
   // return <Redirect href={"/sign-up"} />;
   // return (
   //   <Redirect
@@ -51,7 +56,7 @@ export default function () {
   // return <Redirect href={"/welcome-page"} />;
   // return <Redirect href={"/new-community"} />;
   // return <Redirect href={"/new-community2"} />;
-  return <Redirect href={"/join-community"} />;
+  // return <Redirect href={"/join-community"} />;
   // return <Redirect href={"/request-sent"} />;
 }
 

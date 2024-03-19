@@ -3,7 +3,7 @@ import { Pressable, View } from "react-native";
 import { colors } from "../utils/constants";
 
 export const CustomButton = React.forwardRef(
-  ({ children, style, ...props }, ref) => {
+  ({ children, style = {}, ...props }, ref) => {
     return (
       <View
         style={{
