@@ -1,9 +1,8 @@
-import { StatusBar } from "expo-status-bar";
-import { Pressable, SafeAreaView, View } from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
-import { appName, colors } from "../utils/constants";
+import { View } from "react-native";
+import React from "react";
+import { colors } from "../utils/constants";
 import { Image } from "expo-image";
-import { H2, UbuntuText } from "../components/Texts";
+import { UbuntuText } from "../components/Texts";
 import { Link } from "expo-router";
 import { SafeArea } from "../components/SafeArea";
 import { CustomButton } from "../components/Buttons";

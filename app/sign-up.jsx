@@ -1,24 +1,37 @@
-import {
-  Button,
-  Pressable,
-  SafeAreaView,
-  TouchableHighlight,
-  TouchableOpacity,
-  StatusBar,
-  View,
-} from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
+import { StatusBar, View } from "react-native";
+import React, { useState } from "react";
 import { appName, colors } from "../utils/constants";
-import { Image } from "expo-image";
 import { H2, UbuntuText } from "../components/Texts";
-import { Link } from "expo-router";
+import { Link, router } from "expo-router";
 import { SafeArea } from "../components/SafeArea";
 import { CustomButton } from "../components/Buttons";
 import { UbuntuTextInput } from "../components/UbuntuTextInput";
 import NaijaFlagSvg from "../assets/flag-for-nigeria.svg";
 import DropDownSvg from "../assets/dropdown.svg";
+import { axiosInstance } from "../utils/axios-instance";
 
 export default function () {
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = async () => {
+    console.log("submitting");
+    await axiosInstance.post(
+      "/auth/send-otp",
+      {
+        email,
+      },
+      {
+        headers: {
+          "Content-Type": "application/json",
+          // Add any additional headers if required
+        },
+      },
+    );
+
+    console.log("submitted");
+    router.navigate({ pathname: "/verify", params: { email } });
+  };
+
   return (
     <SafeArea>
       <View
@@ -113,7 +126,11 @@ export default function () {
           >
             +234
           </UbuntuText>
-          <UbuntuTextInput />
+          <UbuntuTextInput
+            value={email}
+            onChangeText={setEmail}
+            onSubmitEditing={handleSubmit}
+          />
         </View>
       </View>
       <View
@@ -133,9 +150,8 @@ export default function () {
           </Link>
         </UbuntuText>
       </View>
-      <Link
-        href={"/verify"}
-        asChild
+      <CustomButton
+        onPress={handleSubmit}
         style={{
           backgroundColor: colors.purple,
           borderRadius: 15,
@@ -144,19 +160,17 @@ export default function () {
           height: 30,
         }}
       >
-        <CustomButton>
-          <UbuntuText
-            weight={500}
-            style={{
-              fontSize: 14,
-              lineHeight: 14.4,
-              color: colors.white,
-            }}
-          >
-            CONTINUE
-          </UbuntuText>
-        </CustomButton>
-      </Link>
+        <UbuntuText
+          weight={500}
+          style={{
+            fontSize: 14,
+            lineHeight: 14.4,
+            color: colors.white,
+          }}
+        >
+          CONTINUE
+        </UbuntuText>
+      </CustomButton>
     </SafeArea>
   );
 }

@@ -1,20 +1,8 @@
-import {
-  Button,
-  Pressable,
-  SafeAreaView,
-  TouchableHighlight,
-  TouchableOpacity,
-  StatusBar,
-  View,
-} from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
-import { appName, colors } from "../utils/constants";
-import { Image } from "expo-image";
-import { H2, UbuntuText } from "../components/Texts";
-import { Link } from "expo-router";
+import { StatusBar, View } from "react-native";
+import React from "react";
+import { colors } from "../utils/constants";
+import { UbuntuText } from "../components/Texts";
 import { SafeArea } from "../components/SafeArea";
-import { CustomButton } from "../components/Buttons";
-import { UbuntuTextInput } from "../components/UbuntuTextInput";
 import LoadingIconSvg from "../assets/loading-icon.svg";
 
 export default function () {

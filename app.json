@@ -10,7 +10,9 @@
       "backgroundColor": "#FAFAFA",
       "image": "./assets/splash-screen.png"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -23,7 +25,17 @@
     "web": {
       "favicon": "./assets/icon.png"
     },
-    "plugins": ["expo-router"],
+    "plugins": [
+      "expo-router",
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "The app accesses your photos to let you share them with your friends.",
+          "cameraPermission": "The app accesses your camera to let you take photos to share with your friends."
+        }
+      ],
+      "expo-secure-store"
+    ],
     "scheme": "sloop"
   }
 }
