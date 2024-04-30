@@ -75,41 +75,44 @@ export default function Eventroll() {
           Upcoming
         </UbuntuText>
       </View>
-      <View style={tw`mx-4 mt-3 gap-3`}>
-        <View style={tw`flex-row gap-2`}>
-          <Frame3 />
-          <View style={tw`flex-col gap-2`}>
-            <UbuntuText weight={700} style={tw`text-[12px] mt-1`}>
-              Title here
-            </UbuntuText>
-            <UbuntuText weight={400} style={tw`text-[12px] text-[#9E9CA0]`}>
-              23/03/2024 | 6:00PM
-            </UbuntuText>
+      <ScrollView style={tw`flex-1`}>
+        <View style={tw`mx-4 mt-3 gap-3`}>
+          <View style={tw`flex-row gap-2`}>
+            <Frame3 />
+            <View style={tw`flex-col gap-2`}>
+              <UbuntuText weight={700} style={tw`text-[12px] mt-1`}>
+                Title here
+              </UbuntuText>
+              <UbuntuText weight={400} style={tw`text-[12px] text-[#9E9CA0]`}>
+                23/03/2024 | 6:00PM
+              </UbuntuText>
+            </View>
+          </View>
+          <View style={tw`flex-row gap-2`}>
+            <Frame3 />
+            <View style={tw`flex-col gap-2`}>
+              <UbuntuText weight={700} style={tw`text-[12px] mt-1`}>
+                Title here
+              </UbuntuText>
+              <UbuntuText weight={400} style={tw`text-[12px] text-[#9E9CA0]`}>
+                23/03/2024 | 6:00PM
+              </UbuntuText>
+            </View>
+          </View>
+
+          <View style={tw`flex-row gap-2`}>
+            <Frame3 />
+            <View style={tw`flex-col gap-2`}>
+              <UbuntuText weight={700} style={tw`text-[12px] mt-1`}>
+                Title here
+              </UbuntuText>
+              <UbuntuText weight={400} style={tw`text-[12px] text-[#9E9CA0]`}>
+                23/03/2024 | 6:00PM
+              </UbuntuText>
+            </View>
           </View>
         </View>
-        <View style={tw`flex-row gap-2`}>
-          <Frame3 />
-          <View style={tw`flex-col gap-2`}>
-            <UbuntuText weight={700} style={tw`text-[12px] mt-1`}>
-              Title here
-            </UbuntuText>
-            <UbuntuText weight={400} style={tw`text-[12px] text-[#9E9CA0]`}>
-              23/03/2024 | 6:00PM
-            </UbuntuText>
-          </View>
-        </View>
-        <View style={tw`flex-row gap-2`}>
-          <Frame3 />
-          <View style={tw`flex-col gap-2`}>
-            <UbuntuText weight={700} style={tw`text-[12px] mt-1`}>
-              Title here
-            </UbuntuText>
-            <UbuntuText weight={400} style={tw`text-[12px] text-[#9E9CA0]`}>
-              23/03/2024 | 6:00PM
-            </UbuntuText>
-          </View>
-        </View>
-      </View>
+      </ScrollView>
       <Circle style={tw`absolute bottom-0 right-0`} />
     </View>
   );

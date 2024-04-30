@@ -1,8 +1,10 @@
 export const colors = Object.freeze({
   white: "#FDFCFF",
   black: "#040009",
+  overlay: "#80000000",
   purple: "#7A1EF7",
   purple2: "#BF8FFF",
+  purple3: "#30084F",
   red: "#F71E2E",
   green: "#9BF71E",
   turquoise: "#1EF7E6",
