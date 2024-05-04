@@ -18,6 +18,7 @@ export default function () {
       <Image
         style={{
           width: 458,
+          maxWidth: "100%",
           height: 421.62,
           position: "absolute",
           // top: 0,
@@ -38,7 +39,9 @@ export default function () {
           gap: 16,
         }}
       >
-        <WhiteBackIconSvg />
+        <Link href={"/welcome-page"} asChild>
+          <WhiteBackIconSvg />
+        </Link>
         <View>
           <UbuntuText
             weight={500}

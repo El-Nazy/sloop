@@ -60,6 +60,10 @@ export default function () {
     handleVerify();
   };
   const handleVerify = async (otp) => {
+    return router.navigate({
+      pathname: "/profile-setup",
+      // params: { emailVerificationId },
+    });
     console.log(otp, email);
     try {
       const res = await fetch(apiBaseUrl + "/auth/verify-otp", {
@@ -113,7 +117,9 @@ export default function () {
           top: 39 - (StatusBar.currentHeight || 0),
         }}
       >
-        <BackArrowSvg />
+        <Link href={"/sign-up"} asChild>
+          <BackArrowSvg />
+        </Link>
       </View>
       <View
         style={{
@@ -214,6 +220,7 @@ export default function () {
           borderRadius: 15,
           paddingHorizontal: 30,
           justifyContent: "center",
+          alignItems: "center",
           height: 30,
         }}
         onPress={() => handleVerify(otp)}
@@ -222,7 +229,7 @@ export default function () {
           weight={500}
           style={{
             fontSize: 14,
-            lineHeight: 14.4,
+            // lineHeight: 14.4,
             color: colors.white,
           }}
         >

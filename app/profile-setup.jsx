@@ -30,6 +30,7 @@ export default function () {
   const [profileImageUri, setProfileImageUri] = useState("");
 
   const handleSubmit = async () => {
+    return router.replace("welcome-page");
     console.log("submitting");
     const formData = new FormData();
 

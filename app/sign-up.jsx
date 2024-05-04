@@ -14,21 +14,21 @@ export default function () {
   const [email, setEmail] = useState("");
 
   const handleSubmit = async () => {
-    console.log("submitting");
-    await axiosInstance.post(
-      "/auth/send-otp",
-      {
-        email,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          // Add any additional headers if required
-        },
-      }
-    );
+    // console.log("submitting");
+    // await axiosInstance.post(
+    //   "/auth/send-otp",
+    //   {
+    //     email,
+    //   },
+    //   {
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //       // Add any additional headers if required
+    //     },
+    //   }
+    // );
 
-    console.log("submitted");
+    // console.log("submitted");
     router.navigate({ pathname: "/verify", params: { email } });
   };
 
@@ -96,6 +96,7 @@ export default function () {
               fontSize: 14,
               lineHeight: 16.09,
               flex: 1,
+              color: "#AFA9B2",
             }}
           >
             Nigeria
@@ -110,7 +111,7 @@ export default function () {
             alignItems: "center",
             gap: 12,
             borderBottomWidth: 2,
-            borderBottomColor: colors.purple2,
+            borderBottomColor: "#AFA9B2",
             borderRadius: 4,
             paddingHorizontal: 8,
             marginBottom: 60,
@@ -131,6 +132,7 @@ export default function () {
             onChangeText={setEmail}
             onSubmitEditing={handleSubmit}
             placeholder="Enter email"
+            placeholderTextColor={colors.gray2}
           />
         </View>
       </View>

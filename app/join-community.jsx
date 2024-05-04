@@ -74,7 +74,9 @@ export default function () {
           gap: 16,
         }}
       >
-        <WhiteBackIconSvg />
+        <Link href={"/welcome-page"} asChild>
+          <WhiteBackIconSvg />
+        </Link>
         <View>
           <UbuntuText
             weight={500}
