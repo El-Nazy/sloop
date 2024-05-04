@@ -10,9 +10,7 @@
       "backgroundColor": "#FAFAFA",
       "image": "./assets/splash-screen.png"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -34,7 +32,13 @@
           "cameraPermission": "The app accesses your camera to let you take photos to share with your friends."
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
+      ]
     ],
     "scheme": "sloop"
   }
