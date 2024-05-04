@@ -25,7 +25,7 @@ export default function () {
           "Content-Type": "application/json",
           // Add any additional headers if required
         },
-      },
+      }
     );
 
     console.log("submitted");
@@ -37,7 +37,7 @@ export default function () {
       <View
         style={{
           marginBottom: 6,
-          marginTop: 93 - StatusBar.currentHeight,
+          marginTop: 93 - (StatusBar.currentHeight || 0),
         }}
       >
         <H2>Enter your phone number</H2>
@@ -116,7 +116,7 @@ export default function () {
             marginBottom: 60,
           }}
         >
-          <UbuntuText
+          {/* <UbuntuText
             weight={500}
             style={{
               fontSize: 13,
@@ -124,12 +124,13 @@ export default function () {
               color: colors.mediumGray,
             }}
           >
-            +234
-          </UbuntuText>
+            Enter email
+          </UbuntuText> */}
           <UbuntuTextInput
             value={email}
             onChangeText={setEmail}
             onSubmitEditing={handleSubmit}
+            placeholder="Enter email"
           />
         </View>
       </View>

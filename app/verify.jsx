@@ -32,7 +32,7 @@ export default function () {
   const { email } = useLocalSearchParams();
   const [otp, setOtp] = useState("");
   const [codeArr, setCodeArr] = useState(
-    Array.from({ length: codeLength }, () => ""),
+    Array.from({ length: codeLength }, () => "")
   );
   const codeInputsRefs = Array.from({ length: codeLength }, () => useRef(null));
 
@@ -110,7 +110,7 @@ export default function () {
         style={{
           position: "absolute",
           left: 16,
-          top: 39 - StatusBar.currentHeight,
+          top: 39 - (StatusBar.currentHeight || 0),
         }}
       >
         <BackArrowSvg />
@@ -118,7 +118,7 @@ export default function () {
       <View
         style={{
           marginBottom: 11,
-          marginTop: 93 - StatusBar.currentHeight,
+          marginTop: 93 - (StatusBar.currentHeight || 0),
         }}
       >
         <H2>Confirm your mobile number</H2>

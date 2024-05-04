@@ -26,7 +26,7 @@ export function GroupChatView() {
         style={{
           backgroundColor: "white",
           paddingHorizontal: 16,
-          marginTop: StatusBar.currentHeight,
+          marginTop: StatusBar.currentHeight || 0,
           // height: 60,
           paddingVertical: 12,
           justifyContent: "flex-end",

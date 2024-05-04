@@ -27,7 +27,7 @@ export default function () {
         style={{
           position: "absolute",
           right: 16,
-          top: 35 - StatusBar.currentHeight,
+          top: 35 - (StatusBar.currentHeight || 0),
           width: 40,
           height: 40,
           borderRadius: 20,

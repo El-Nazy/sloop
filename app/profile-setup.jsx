@@ -72,7 +72,7 @@ export default function () {
         style={{
           position: "absolute",
           right: 21,
-          top: 38 - StatusBar.currentHeight,
+          top: 38 - (StatusBar.currentHeight || 0),
           padding: 10,
         }}
       >
@@ -85,7 +85,7 @@ export default function () {
       <View
         style={{
           marginBottom: 11,
-          marginTop: 93 - StatusBar.currentHeight,
+          marginTop: 93 - (StatusBar.currentHeight || 0),
         }}
       >
         <H2>Profile info</H2>

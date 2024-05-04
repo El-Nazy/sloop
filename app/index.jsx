@@ -11,7 +11,7 @@ export default function () {
 
   if (!rootNavigationState?.key) return null;
   // console.log("\n\n\nhere\n\n\n");
-  // return <Redirect href={"/on-boarding"} />;
+  return <Redirect href={"/on-boarding"} />;
   // return <Redirect href={"/home"} />;
   // return <Redirect href={"/welcome-group"} />;
   // return <Redirect href={"/event"} />;
@@ -23,7 +23,7 @@ export default function () {
   // return <Redirect href={"/homeschecdule"} />;
   // return <Redirect href={"/viewschecduled"} />;
   // return <Redirect href={"/schecduledcontent"} />;
-  return <Redirect href={"/chats"} />;
+  // return <Redirect href={"/chats"} />;
   // return <Redirect href={"/Eventroll"} />;
   // storeUser(
   //   JSON.parse(
