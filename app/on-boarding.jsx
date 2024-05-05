@@ -25,13 +25,17 @@ export default function () {
         }}
         source={require("../assets/on-boarding.png")}
       /> */}
-      <OnBoardingSvg />
+      <OnBoardingSvg
+        style={{
+          marginBottom: 32,
+        }}
+      />
       <View
         style={{
-          marginBottom: 11,
+          marginBottom: 16,
         }}
       >
-        <H2>Welcome to {appName}</H2>
+        <H2>Welcome to Sloop</H2>
       </View>
       <View
         style={{
@@ -39,36 +43,31 @@ export default function () {
           marginBottom: 52,
         }}
       >
-        {/* <UbuntuText
+        <UbuntuText
           style={{
-            fontSize: 12,
-            lineHeight: 14,
+            fontSize: 14,
+            lineHeight: 18,
             color: colors.mediumGray,
             textAlign: "center",
+            width: "202px",
           }}
         >
           Discover, learn, and thrive with a supportive community.
-        </UbuntuText> */}
+        </UbuntuText>
       </View>
-      <View
-        style={{
-          position: "absolute",
-          bottom: 48,
-          left: 16,
-          right: 16,
-        }}
-      >
-        <Link
-          href={"/sign-up"}
-          asChild
+      <Link href={"/sign-up"} asChild>
+        <View
           style={{
+            position: "absolute",
+            bottom: 48,
+            left: 16,
+            right: 16,
             backgroundColor: colors.purple4,
             borderRadius: 12,
             paddingHorizontal: 30,
             justifyContent: "center",
             alignItems: "center",
             height: 44,
-            width: "100%",
           }}
         >
           <CustomButton>
@@ -83,8 +82,8 @@ export default function () {
               CONTINUE
             </UbuntuText>
           </CustomButton>
-        </Link>
-      </View>
+        </View>
+      </Link>
     </SafeArea>
   );
 }

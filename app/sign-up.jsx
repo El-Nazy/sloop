@@ -54,7 +54,7 @@ export default function () {
             color: colors.mediumGray,
           }}
         >
-          {appName} will need to confirm your account
+          Sloop will need to confirm your account.
         </UbuntuText>
       </View>
       <View
