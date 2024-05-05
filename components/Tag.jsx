@@ -8,7 +8,7 @@ export function Tag({ text = "CLASS" }) {
     <View
       style={{
         padding: 4,
-        backgroundColor: "#7A1EF7",
+        backgroundColor: "#30084F",
         borderRadius: 4,
         // width: "auto",
         // flex: 1,

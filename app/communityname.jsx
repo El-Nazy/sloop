@@ -101,7 +101,7 @@ export default function communityname() {
                   <CustomButton
                     style={{
                       borderRadius: 4,
-                      backgroundColor: colors.purple,
+                      backgroundColor: colors.purple4,
                       width: 47,
                       height: 19,
                     }}
@@ -136,7 +136,7 @@ export default function communityname() {
                   <CustomButton
                     style={{
                       borderRadius: 4,
-                      backgroundColor: colors.purple,
+                      backgroundColor: colors.purple4,
                       width: 47,
                       height: 19,
                     }}
@@ -170,7 +170,7 @@ export default function communityname() {
                   <CustomButton
                     style={{
                       borderRadius: 4,
-                      backgroundColor: colors.purple,
+                      backgroundColor: colors.purple4,
                       width: 47,
                       height: 19,
                     }}
@@ -204,7 +204,7 @@ export default function communityname() {
                   <CustomButton
                     style={{
                       borderRadius: 4,
-                      backgroundColor: colors.purple,
+                      backgroundColor: colors.purple4,
                       width: 47,
                       height: 19,
                     }}

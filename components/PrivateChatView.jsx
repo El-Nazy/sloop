@@ -153,7 +153,7 @@ export function PrivateChatView() {
                   padding: 14,
                   backgroundColor: colors.lightGray,
                   borderRadius: 22,
-                  backgroundColor: colors.purple,
+                  backgroundColor: colors.purple4,
                 }}
               >
                 <UbuntuText
@@ -167,7 +167,7 @@ export function PrivateChatView() {
                   padding: 14,
                   backgroundColor: colors.lightGray,
                   borderRadius: 22,
-                  backgroundColor: colors.purple,
+                  backgroundColor: colors.purple4,
                 }}
               >
                 <UbuntuText
@@ -183,7 +183,7 @@ export function PrivateChatView() {
                   backgroundColor: colors.lightGray,
                   borderRadius: 22,
                   borderBottomRightRadius: 4,
-                  backgroundColor: colors.purple,
+                  backgroundColor: colors.purple4,
                 }}
               >
                 <UbuntuText

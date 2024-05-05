@@ -83,7 +83,7 @@ export default function schecduledcontent() {
                   height: 31,
                   borderStyle: "solid",
                   borderWidth: 1,
-                  borderColor: colors.Purple,
+                  borderColor: colors.purple4,
                 }}
               >
                 <UbuntuText
@@ -92,7 +92,7 @@ export default function schecduledcontent() {
                     fontSize: 12,
                     lineHeight: 16,
                     textAlign: "center",
-                    color: colors.purple,
+                    color: colors.purple4,
                     paddingVertical: 4,
                   }}
                 >
@@ -129,7 +129,7 @@ export default function schecduledcontent() {
                   height: 31,
                   borderStyle: "solid",
                   borderWidth: 1,
-                  borderColor: colors.darkPurple,
+                  borderColor: colors.darkpurple4,
                 }}
               >
                 <UbuntuText
@@ -138,7 +138,7 @@ export default function schecduledcontent() {
                     fontSize: 12,
                     lineHeight: 16,
                     textAlign: "center",
-                    color: colors.purple,
+                    color: colors.purple4,
                     paddingVertical: 4,
                   }}
                 >

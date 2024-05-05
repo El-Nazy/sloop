@@ -7,6 +7,7 @@ import { H2, UbuntuText } from "../components/Texts";
 import { Link } from "expo-router";
 import { SafeArea } from "../components/SafeArea";
 import { CustomButton } from "../components/Buttons";
+import OnBoardingSvg from "../assets/on-boarding.svg";
 
 export default function () {
   return (
@@ -16,14 +17,15 @@ export default function () {
         padding: 16,
       }}
     >
-      <Image
+      {/* <Image
         style={{
           width: 210.84,
           height: 157.1,
           marginBottom: 50,
         }}
         source={require("../assets/on-boarding.png")}
-      />
+      /> */}
+      <OnBoardingSvg />
       <View
         style={{
           marginBottom: 11,
@@ -60,7 +62,7 @@ export default function () {
           href={"/sign-up"}
           asChild
           style={{
-            backgroundColor: colors.purple,
+            backgroundColor: colors.purple4,
             borderRadius: 12,
             paddingHorizontal: 30,
             justifyContent: "center",

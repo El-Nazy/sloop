@@ -31,7 +31,7 @@ export default function () {
           position: "absolute",
           top: 0,
           width: "100%",
-          backgroundColor: colors.purple,
+          backgroundColor: colors.purple4,
           flexDirection: "row",
           paddingHorizontal: 16,
           height: 62,
@@ -140,7 +140,7 @@ export default function () {
           href={"/profile-setup"}
           asChild
           style={{
-            backgroundColor: colors.purple,
+            backgroundColor: colors.purple4,
             borderRadius: 12,
             paddingHorizontal: 30,
             justifyContent: "center",

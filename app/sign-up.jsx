@@ -156,7 +156,7 @@ export default function () {
       <CustomButton
         onPress={handleSubmit}
         style={{
-          backgroundColor: colors.purple,
+          backgroundColor: colors.purple4,
           borderRadius: 15,
           paddingHorizontal: 30,
           justifyContent: "center",

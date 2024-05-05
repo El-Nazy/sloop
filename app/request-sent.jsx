@@ -46,7 +46,7 @@ export default function () {
           href={"/home"}
           asChild
           style={{
-            backgroundColor: colors.purple,
+            backgroundColor: colors.purple4,
             borderRadius: 12,
             paddingHorizontal: 30,
             justifyContent: "center",

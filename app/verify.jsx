@@ -182,8 +182,8 @@ export default function () {
                 fontSize: 20,
               },
               focusedPinCodeContainerStyle: {
-                borderColor: colors.purple,
-                backgroundColor: colors.purple,
+                borderColor: colors.purple4,
+                backgroundColor: colors.purple4,
               },
             }}
           />
@@ -208,7 +208,7 @@ export default function () {
           style={{
             fontSize: 12,
             lineHeight: 14.4,
-            color: colors.purple,
+            color: colors.purple4,
           }}
         >
           RESEND CODE
@@ -216,7 +216,7 @@ export default function () {
       </View>
       <CustomButton
         style={{
-          backgroundColor: colors.purple,
+          backgroundColor: colors.purple4,
           borderRadius: 15,
           paddingHorizontal: 30,
           justifyContent: "center",

@@ -22,7 +22,7 @@ export default function () {
   //   async () => {};
   // }, [userImage]);
   return (
-    <SafeArea backgroundColor={colors.purple} barStyle="light">
+    <SafeArea backgroundColor={colors.purple4} barStyle="light">
       <View
         style={{
           position: "absolute",
@@ -76,7 +76,7 @@ export default function () {
             href={"/new-community"}
             asChild
             style={{
-              backgroundColor: colors.purple,
+              backgroundColor: colors.purple4,
               borderRadius: 17,
               alignItems: "center",
               justifyContent: "center",
@@ -101,7 +101,7 @@ export default function () {
             href={"/join-community"}
             asChild
             style={{
-              borderColor: colors.purple,
+              borderColor: colors.purple4,
               borderWidth: 2,
               borderRadius: 17,
               alignItems: "center",
@@ -115,7 +115,7 @@ export default function () {
                 style={{
                   fontSize: 14,
                   lineHeight: 14.4,
-                  color: colors.purple,
+                  color: colors.purple4,
                 }}
               >
                 Join a community
