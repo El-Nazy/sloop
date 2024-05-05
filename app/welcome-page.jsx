@@ -13,11 +13,11 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function () {
   const [userImageUrl, setUserImageUrl] = useState("");
-  AsyncStorage.getItem("user").then((user) => {
-    console.log(user);
-    setUserImageUrl(JSON.parse(user).profileImageUrl);
-    // console.log(userImage);
-  });
+  // AsyncStorage.getItem("user").then((user) => {
+  //   console.log(user);
+  //   setUserImageUrl(JSON.parse(user).profileImageUrl);
+  //   // console.log(userImage);
+  // });
   // useEffect(() => {
   //   async () => {};
   // }, [userImage]);

@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import { useRootNavigationState, Redirect } from "expo-router";
 import * as SecureStore from "expo-secure-store";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 import { storeUser } from "../utils/user-utils";
 
 export default function () {

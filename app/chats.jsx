@@ -252,7 +252,7 @@ function AudioPlayer() {
 
   return (
     <View>
-      <View style={tw`flex-row items-center`}>
+      <View style={tw`flex-row items-center gap-1`}>
         <Play />
         <Slider
           style={tw`flex-1`} // Adjust width as needed
@@ -261,6 +261,7 @@ function AudioPlayer() {
           value={value} // Set initial value from state
           onValueChange={handleChange} // Function to update state on change
           thumbTintColor={colors.darkPurple}
+          tapToSeek={true}
         />
 
         {/* <View style={tw`rounded-[12px] flex-1 h-[2px] bg-[#D9D9D9]`} /> */}
