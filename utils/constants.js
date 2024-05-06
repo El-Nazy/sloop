@@ -15,8 +15,10 @@ export const colors = Object.freeze({
   darkestGray: "#303030",
   darkPurple: "#2D0D57",
   neutralGray: "#9C9C9C",
+  newgray: "#9E9CA0",
   gray2: "#D4CCDF",
   gray3: "#EDE9F1",
+  darkGray: "#0A090C",
 });
 
 export const appName = "sLOOP";
