@@ -18,6 +18,7 @@ export default function () {
       <Image
         style={{
           width: 458,
+          maxWidth: "100%",
           height: 421.62,
           position: "absolute",
           // top: 0,
@@ -30,7 +31,7 @@ export default function () {
           position: "absolute",
           top: 0,
           width: "100%",
-          backgroundColor: colors.purple,
+          backgroundColor: colors.purple4,
           flexDirection: "row",
           paddingHorizontal: 16,
           height: 62,
@@ -38,7 +39,9 @@ export default function () {
           gap: 16,
         }}
       >
-        <WhiteBackIconSvg />
+        <Link href={"/welcome-page"} asChild>
+          <WhiteBackIconSvg />
+        </Link>
         <View>
           <UbuntuText
             weight={500}
@@ -137,7 +140,7 @@ export default function () {
           href={"/profile-setup"}
           asChild
           style={{
-            backgroundColor: colors.purple,
+            backgroundColor: colors.purple4,
             borderRadius: 12,
             paddingHorizontal: 30,
             justifyContent: "center",

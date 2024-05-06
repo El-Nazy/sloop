@@ -48,7 +48,7 @@ export function PostList() {
             sit iaculis commodo vitae suscipit nibh. Sit sit sed{" "}
           </UbuntuText>
         </View>
-        <UbuntuText style={tw`text-[#7A1EF7]`}>Read more</UbuntuText>
+        <UbuntuText style={tw`text-[#30084F]`}>Read more</UbuntuText>
         <Image
           style={{
             width: 328,

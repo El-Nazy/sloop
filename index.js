@@ -1,3 +1,6 @@
+import "react-native-get-random-values";
+// import { v4 as uuid } from "uuid";
+
 import { registerRootComponent } from "expo";
 import { ExpoRoot } from "expo-router";
 import "expo-router/entry";

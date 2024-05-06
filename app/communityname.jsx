@@ -128,187 +128,171 @@ export default function communityname() {
             </Pressable>
           </View>
         </View>
-
-        {activeTab === "info" && (
-          <View>
-            <View style={tw`px-7 pt-5`}>
-              <UbuntuText weight={400} style={tw`text-[12px] text-[#9E9CA0]`}>
-                Long community infoodio ornare sed. Rhoncus hendrerit tincidunt
-                sit iaculis commodo vitae suscipit nibh. Sit sit sed celerisque
-                nunc sed dictum eleifend mollis. Elementum id vitae malesuada
-                enim consectetur hac curabitur diam
-              </UbuntuText>
-            </View>
-            <View>
-              <View
-                style={[
-                  tw`pt-9 gap-3 `,
-                  Platform.OS === "ios" ? tw`pt-9` : tw`pt-14`,
-                ]}
-              >
-                <View style={tw`w-full bg-[#FEFEFE] shadow-lg  gap-3`}>
-                  <UbuntuText
-                    weight={700}
-                    style={tw`text-[14px] pt-[16px] px-[16px] `}
-                  >
-                    View Groups (23)
-                  </UbuntuText>
-                  <View style={tw`h-px bg-[#9E9CA0] w-full`} />
+        <View style={tw`w-[167px] border-[#310A50] border-b-2 `} />
+        <View style={tw`px-7 pt-5`}>
+          <UbuntuText weight={400} style={tw`text-[12px]  text-[#9E9CA0]`}>
+            Long community infoodio ornare sed. Rhoncus hendrerit tincidunt sit
+            iaculis commodo vitae suscipit nibh. Sit sit sed celerisque nunc sed
+            dictum eleifend mollis. Elementum id vitae malesuada enim
+            consectetur hac curabitur diam
+          </UbuntuText>
+        </View>
+      </View>
+      <View
+        style={[tw`pt-9 gap-3 `, Platform.OS === "ios" ? tw`pt-9` : tw`pt-14`]}
+      >
+        <View style={tw`w-full bg-[#FEFEFE] shadow-lg  gap-3`}>
+          <UbuntuText weight={700} style={tw`text-[14px] pt-[16px] px-[16px] `}>
+            View Groups (23)
+          </UbuntuText>
+          <View style={tw`h-px bg-[#9E9CA0] w-full`} />
+          <UbuntuText
+            weight={400}
+            style={tw`text-[14px] pt-[16px] text-[#9E9CA0] px-[16px]`}
+          >
+            People in this community (23)
+          </UbuntuText>
+          <ScrollView style={tw``}>
+            <View style={tw`flex-1 gap-1`}>
+              <View style={tw`flex-row justify-between w-full px-[16px] `}>
+                <View style={tw`flex-row gap-3`}>
+                  <Picture />
                   <UbuntuText
                     weight={400}
-                    style={tw`text-[14px] pt-[16px] text-[#9E9CA0] px-[16px]`}
+                    style={tw`text-[14px] text-[#0A090C] self-center`}
                   >
-                    People in this community (23)
+                    You (Full Creator Name)
                   </UbuntuText>
-                  <ScrollView style={tw``}>
-                    <View style={tw`flex-1 gap-1`}>
-                      <View
-                        style={tw`flex-row justify-between w-full px-[16px] `}
-                      >
-                        <View style={tw`flex-row gap-3`}>
-                          <Picture />
-                          <UbuntuText
-                            weight={400}
-                            style={tw`text-[14px] text-[#0A090C] self-center`}
-                          >
-                            You (Full Creator Name)
-                          </UbuntuText>
-                        </View>
-                        <TouchableOpacity style={tw`self-center`}>
-                          <CustomButton
-                            style={{
-                              borderRadius: 4,
-                              backgroundColor: colors.purple,
-                              width: 47,
-                              height: 19,
-                            }}
-                          >
-                            <UbuntuText
-                              weight={400}
-                              style={{
-                                fontSize: 10,
-                                lineHeight: 10,
-                                textAlign: "center",
-                                color: colors.purple2,
-                                paddingVertical: 4,
-                              }}
-                            >
-                              create
-                            </UbuntuText>
-                          </CustomButton>
-                        </TouchableOpacity>
-                      </View>
-                      <View style={tw`h-px bg-[#9E9CA0] w-full`} />
-                      <View
-                        style={tw`flex-row justify-between w-full px-[16px]`}
-                      >
-                        <View style={tw`flex-row gap-3`}>
-                          <Picture />
-                          <UbuntuText
-                            weight={400}
-                            style={tw`text-[14px] text-[#0A090C] self-center`}
-                          >
-                            Member Name
-                          </UbuntuText>
-                        </View>
-                        <TouchableOpacity style={tw`self-center`}>
-                          <CustomButton
-                            style={{
-                              borderRadius: 4,
-                              backgroundColor: colors.purple,
-                              width: 47,
-                              height: 19,
-                            }}
-                          >
-                            <UbuntuText
-                              weight={400}
-                              style={{
-                                fontSize: 10,
-                                lineHeight: 10,
-                                textAlign: "center",
-                                color: colors.purple2,
-                                paddingVertical: 4,
-                              }}
-                            >
-                              Admin
-                            </UbuntuText>
-                          </CustomButton>
-                        </TouchableOpacity>
-                      </View>
-                      <View
-                        style={tw`flex-row justify-between w-full px-[16px]`}
-                      >
-                        <View style={tw`flex-row gap-3`}>
-                          <Picture />
-                          <UbuntuText
-                            weight={400}
-                            style={tw`text-[14px] text-[#0A090C] self-center`}
-                          >
-                            Member Name
-                          </UbuntuText>
-                        </View>
-                        <TouchableOpacity style={tw`self-center`}>
-                          <CustomButton
-                            style={{
-                              borderRadius: 4,
-                              backgroundColor: colors.purple,
-                              width: 47,
-                              height: 19,
-                            }}
-                          >
-                            <UbuntuText
-                              weight={400}
-                              style={{
-                                fontSize: 10,
-                                lineHeight: 10,
-                                textAlign: "center",
-                                color: colors.purple2,
-                                paddingVertical: 4,
-                              }}
-                            >
-                              Admin
-                            </UbuntuText>
-                          </CustomButton>
-                        </TouchableOpacity>
-                      </View>
-                      <View
-                        style={tw`flex-row justify-between w-full px-[16px]`}
-                      >
-                        <View style={tw`flex-row gap-3`}>
-                          <Picture />
-                          <UbuntuText
-                            weight={400}
-                            style={tw`text-[14px] text-[#0A090C] self-center`}
-                          >
-                            Member Name
-                          </UbuntuText>
-                        </View>
-                        <TouchableOpacity style={tw`self-center`}>
-                          <CustomButton
-                            style={{
-                              borderRadius: 4,
-                              backgroundColor: colors.purple,
-                              width: 47,
-                              height: 19,
-                            }}
-                          >
-                            <UbuntuText
-                              weight={400}
-                              style={{
-                                fontSize: 10,
-                                lineHeight: 10,
-                                textAlign: "center",
-                                color: colors.purple2,
-                                paddingVertical: 4,
-                              }}
-                            >
-                              Admin
-                            </UbuntuText>
-                          </CustomButton>
-                        </TouchableOpacity>
-                      </View>
-                      <View style={tw`h-px bg-[#9E9CA0] w-full`} />
-                    </View>
+                </View>
+                <TouchableOpacity style={tw`self-center`}>
+                  <CustomButton
+                    style={{
+                      borderRadius: 4,
+                      backgroundColor: colors.purple,
+                      width: 47,
+                      height: 19,
+                    }}
+                  >
+                    <UbuntuText
+                      weight={400}
+                      style={{
+                        fontSize: 10,
+                        lineHeight: 10,
+                        textAlign: "center",
+                        color: colors.purple2,
+                        paddingVertical: 4,
+                      }}
+                    >
+                      create
+                    </UbuntuText>
+                  </CustomButton>
+                </TouchableOpacity>
+              </View>
+              <View style={tw`h-px bg-[#9E9CA0] w-full`} />
+              <View style={tw`flex-row justify-between w-full px-[16px]`}>
+                <View style={tw`flex-row gap-3`}>
+                  <Picture />
+                  <UbuntuText
+                    weight={400}
+                    style={tw`text-[14px] text-[#0A090C] self-center`}
+                  >
+                    Member Name
+                  </UbuntuText>
+                </View>
+                <TouchableOpacity style={tw`self-center`}>
+                  <CustomButton
+                    style={{
+                      borderRadius: 4,
+                      backgroundColor: colors.purple,
+                      width: 47,
+                      height: 19,
+                    }}
+                  >
+                    <UbuntuText
+                      weight={400}
+                      style={{
+                        fontSize: 10,
+                        lineHeight: 10,
+                        textAlign: "center",
+                        color: colors.purple2,
+                        paddingVertical: 4,
+                      }}
+                    >
+                      Admin
+                    </UbuntuText>
+                  </CustomButton>
+                </TouchableOpacity>
+              </View>
+              <View style={tw`flex-row justify-between w-full px-[16px]`}>
+                <View style={tw`flex-row gap-3`}>
+                  <Picture />
+                  <UbuntuText
+                    weight={400}
+                    style={tw`text-[14px] text-[#0A090C] self-center`}
+                  >
+                    Member Name
+                  </UbuntuText>
+                </View>
+                <TouchableOpacity style={tw`self-center`}>
+                  <CustomButton
+                    style={{
+                      borderRadius: 4,
+                      backgroundColor: colors.purple,
+                      width: 47,
+                      height: 19,
+                    }}
+                  >
+                    <UbuntuText
+                      weight={400}
+                      style={{
+                        fontSize: 10,
+                        lineHeight: 10,
+                        textAlign: "center",
+                        color: colors.purple2,
+                        paddingVertical: 4,
+                      }}
+                    >
+                      Admin
+                    </UbuntuText>
+                  </CustomButton>
+                </TouchableOpacity>
+              </View>
+              <View style={tw`flex-row justify-between w-full px-[16px]`}>
+                <View style={tw`flex-row gap-3`}>
+                  <Picture />
+                  <UbuntuText
+                    weight={400}
+                    style={tw`text-[14px] text-[#0A090C] self-center`}
+                  >
+                    Member Name
+                  </UbuntuText>
+                </View>
+                <TouchableOpacity style={tw`self-center`}>
+                  <CustomButton
+                    style={{
+                      borderRadius: 4,
+                      backgroundColor: colors.purple,
+                      width: 47,
+                      height: 19,
+                    }}
+                  >
+                    <UbuntuText
+                      weight={400}
+                      style={{
+                        fontSize: 10,
+                        lineHeight: 10,
+                        textAlign: "center",
+                        color: colors.purple2,
+                        paddingVertical: 4,
+                      }}
+                    >
+                      Admin
+                    </UbuntuText>
+                  </CustomButton>
+                </TouchableOpacity>
+              </View>
+              <View style={tw`h-px bg-[#9E9CA0] w-full`} />
+            </View>
 
                     <View style={tw`flex justify-center items-center pt-3`}>
                       <TouchableOpacity onPress={handlePressed}>

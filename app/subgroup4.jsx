@@ -195,7 +195,7 @@ export default function subgroup4() {
             <CustomButton
               style={{
                 borderRadius: 16,
-                backgroundColor: colors.purple,
+                backgroundColor: colors.purple4,
                 width: 189,
                 height: 38,
               }}

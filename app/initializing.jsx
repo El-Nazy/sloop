@@ -10,7 +10,7 @@ export default function () {
     <SafeArea>
       <View
         style={{
-          marginTop: 76 - StatusBar.currentHeight,
+          marginTop: 76 - (StatusBar.currentHeight || 0),
           marginBottom: 8,
         }}
       >

@@ -53,7 +53,7 @@ export function PostDetail() {
             scelerisque. Pharetra nulla id malesuada in aliquet a
           </UbuntuText>
         </View>
-        <UbuntuText style={tw`text-[#7A1EF7]`}>Read more</UbuntuText>
+        <UbuntuText style={tw`text-[#30084F]`}>Read more</UbuntuText>
         <Image
           style={{
             width: 328,

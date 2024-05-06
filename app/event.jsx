@@ -25,7 +25,7 @@ export default function event() {
             <UbuntuText weight={700} style={tw`text-[14px] my-3`}>
               Extravagant praise
             </UbuntuText>
-            <View style={tw`bg-[#7A1EF7] rounded-full h-5 w-10 my-3 ml-auto`}>
+            <View style={tw`bg-[#30084F] rounded-full h-5 w-10 my-3 ml-auto`}>
               <UbuntuText
                 weight={400}
                 style={tw`text-[8px] my-1 text-white text-center`}

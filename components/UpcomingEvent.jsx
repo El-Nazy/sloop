@@ -67,7 +67,7 @@ export function UpcomingEvent() {
                   Today, 8:11 PM
                 </UbuntuText>
                 <View
-                  style={tw`bg-[#7A1EF7] rounded-full  h-4 w-4 relative left-15 my-1`}
+                  style={tw`bg-[#30084F] rounded-full  h-4 w-4 relative left-15 my-1`}
                 >
                   <UbuntuText
                     style={tw`text-[#FEFEFE] text-[10px] my-0.5 text-center `}
@@ -95,7 +95,7 @@ export function UpcomingEvent() {
                   Today, 8:11 PM
                 </UbuntuText>
                 <View
-                  style={tw`bg-[#7A1EF7] rounded-full  h-4 w-4 relative left-15 my-1`}
+                  style={tw`bg-[#30084F] rounded-full  h-4 w-4 relative left-15 my-1`}
                 >
                   <UbuntuText
                     style={tw`text-[#FEFEFE] text-[10px] my-0.5 text-center `}
@@ -123,7 +123,7 @@ export function UpcomingEvent() {
                   Today, 8:11 PM
                 </UbuntuText>
                 <View
-                  style={tw`bg-[#7A1EF7] rounded-full  h-4 w-4 relative left-15 my-1`}
+                  style={tw`bg-[#30084F] rounded-full  h-4 w-4 relative left-15 my-1`}
                 >
                   <UbuntuText
                     style={tw`text-[#FEFEFE] text-[10px] my-0.5 text-center `}
@@ -151,7 +151,7 @@ export function UpcomingEvent() {
                   Today, 8:11 PM
                 </UbuntuText>
                 <View
-                  style={tw`bg-[#7A1EF7] rounded-full  h-4 w-4 relative left-15 my-1`}
+                  style={tw`bg-[#30084F] rounded-full  h-4 w-4 relative left-15 my-1`}
                 >
                   <UbuntuText
                     style={tw`text-[#FEFEFE] text-[10px] my-0.5 text-center `}

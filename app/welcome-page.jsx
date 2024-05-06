@@ -13,21 +13,21 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function () {
   const [userImageUrl, setUserImageUrl] = useState("");
-  AsyncStorage.getItem("user").then((user) => {
-    console.log(user);
-    setUserImageUrl(JSON.parse(user).profileImageUrl);
-    // console.log(userImage);
-  });
+  // AsyncStorage.getItem("user").then((user) => {
+  //   console.log(user);
+  //   setUserImageUrl(JSON.parse(user).profileImageUrl);
+  //   // console.log(userImage);
+  // });
   // useEffect(() => {
   //   async () => {};
   // }, [userImage]);
   return (
-    <SafeArea backgroundColor={colors.purple} barStyle="light">
+    <SafeArea backgroundColor={colors.purple4} barStyle="light">
       <View
         style={{
           position: "absolute",
           right: 16,
-          top: 35 - StatusBar.currentHeight,
+          top: 35 - (StatusBar.currentHeight || 0),
           width: 40,
           height: 40,
           borderRadius: 20,
@@ -76,7 +76,7 @@ export default function () {
             href={"/new-community"}
             asChild
             style={{
-              backgroundColor: colors.purple,
+              backgroundColor: colors.purple4,
               borderRadius: 17,
               alignItems: "center",
               justifyContent: "center",
@@ -101,7 +101,7 @@ export default function () {
             href={"/join-community"}
             asChild
             style={{
-              borderColor: colors.purple,
+              borderColor: colors.purple4,
               borderWidth: 2,
               borderRadius: 17,
               alignItems: "center",
@@ -115,7 +115,7 @@ export default function () {
                 style={{
                   fontSize: 14,
                   lineHeight: 14.4,
-                  color: colors.purple,
+                  color: colors.purple4,
                 }}
               >
                 Join a community

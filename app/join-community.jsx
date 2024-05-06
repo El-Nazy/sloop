@@ -62,11 +62,14 @@ export default function () {
     }
   };
   return (
-    <SafeArea statusProps={{ backgroundColor: colors.purple }} barStyle="light">
+    <SafeArea
+      statusProps={{ backgroundColor: colors.purple4 }}
+      barStyle="light"
+    >
       <View
         style={{
           width: "100%",
-          backgroundColor: colors.purple,
+          backgroundColor: colors.purple4,
           flexDirection: "row",
           paddingHorizontal: 16,
           height: 62,
@@ -74,7 +77,9 @@ export default function () {
           gap: 16,
         }}
       >
-        <WhiteBackIconSvg />
+        <Link href={"/welcome-page"} asChild>
+          <WhiteBackIconSvg />
+        </Link>
         <View>
           <UbuntuText
             weight={500}
@@ -162,7 +167,7 @@ export default function () {
       >
         <CustomButton
           style={{
-            backgroundColor: colors.purple,
+            backgroundColor: colors.purple4,
             borderRadius: 12,
             paddingHorizontal: 30,
             justifyContent: "center",
@@ -256,7 +261,7 @@ export default function () {
             href={"/request-sent"}
             asChild
             style={{
-              backgroundColor: colors.purple,
+              backgroundColor: colors.purple4,
               borderRadius: 12,
               paddingHorizontal: 30,
               justifyContent: "center",

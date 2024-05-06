@@ -2,7 +2,7 @@ import { StyleSheet } from "react-native";
 import React from "react";
 import { useRootNavigationState, Redirect } from "expo-router";
 import * as SecureStore from "expo-secure-store";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+// import AsyncStorage from "@react-native-async-storage/async-storage";
 import { storeUser } from "../utils/user-utils";
 
 export default function () {
@@ -11,7 +11,7 @@ export default function () {
 
   if (!rootNavigationState?.key) return null;
   // console.log("\n\n\nhere\n\n\n");
-  // return <Redirect href={"/on-boarding"} />;
+  return <Redirect href={"/on-boarding"} />;
   // return <Redirect href={"/home"} />;
   // return <Redirect href={"/welcome-group"} />;
   // return <Redirect href={"/event"} />;
@@ -25,9 +25,12 @@ export default function () {
   // return <Redirect href={"/community-report"} />;
   // return <Redirect href={"/communitydone"} />;
   return <Redirect href={"/communityblock"} />;
+  // return <Redirect href={"/communityblock"} />;
   // return <Redirect href={"/homeschecdule"} />;
   // return <Redirect href={"/viewschecduled"} />;
   // return <Redirect href={"/schecduledcontent"} />;
+  // return <Redirect href={"/chats"} />;
+  // return <Redirect href={"/Eventroll"} />;
   // storeUser(
   //   JSON.parse(
   //     `{"authToken": "eyJhbGciOiJIUzI1NiJ9.NjVkZTA4OTVhYWMyZmNhNzFiMDRhZDZj.Q_CiDOEaX1pPmRyilHGVnKe_geB3FeiNHLvy-7UoBE4", "user": {"__v": 0, "_id": "65de0895aac2fca71b04ad6c", "bio": "bio", "createdAt": "2024-02-27T16:06:45.974Z", "email": "emmanuelchinazangene@gmail.com", "name": "Emma", "profileImageUrl": "https://res.cloudinary.com/duufslee0/image/upload/v1709050004/kilzgc5uex6fzp6whf6o.jpg", "updatedAt": "2024-02-27T16:06:45.974Z"}}`,
@@ -90,7 +93,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderStyle: "solid",
     borderBottomWidth: 3,
-    borderBottomColor: "#7A1EF7",
+    borderBottomColor: "#30084F",
     paddingHorizontal: 24,
     paddingVertical: 12,
   },

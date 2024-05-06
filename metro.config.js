@@ -9,10 +9,22 @@ module.exports = (() => {
     ...transformer,
     babelTransformerPath: require.resolve("react-native-svg-transformer"),
   };
+
   config.resolver = {
     ...resolver,
     assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
     sourceExts: [...resolver.sourceExts, "svg"],
+  };
+
+  config.resolver.resolveRequest = (context, moduleName, platform) => {
+    if (platform === "web" && moduleName === "crypto") {
+      return {
+        type: "empty",
+      };
+    }
+
+    // Ensure you call the default resolver.
+    return context.resolveRequest(context, moduleName, platform);
   };
 
   return config;

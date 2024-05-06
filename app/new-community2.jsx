@@ -43,7 +43,7 @@ export default function () {
           "Content-Type": "multipart/form-data",
           Accept: "application/json",
           Authorization: `Bearer ${await SecureStore.getItemAsync(
-            "authToken",
+            "authToken"
           )}`,
         },
       });
@@ -62,7 +62,7 @@ export default function () {
       <View
         style={{
           width: "100%",
-          backgroundColor: colors.purple,
+          backgroundColor: colors.purple4,
           flexDirection: "row",
           paddingHorizontal: 16,
           height: 62,
@@ -198,7 +198,7 @@ export default function () {
       >
         <CustomButton
           style={{
-            backgroundColor: colors.purple,
+            backgroundColor: colors.purple4,
             borderRadius: 12,
             paddingHorizontal: 30,
             justifyContent: "center",

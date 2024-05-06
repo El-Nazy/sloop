@@ -44,14 +44,14 @@ export default function () {
           </View>
         </View>
         <View
-          style={tw`flex flex-row p-3 my-3 gap-20 bg-white shadow border-b-[#7A1EF7]`}
+          style={tw`flex flex-row p-3 my-3 gap-20 bg-white shadow border-b-[#30084F]`}
         >
           <UbuntuText weight={500} style={tw`font-bold text-[#040009]`}>
             UPdates
           </UbuntuText>
           <UbuntuText style={tw`border-b border-[#]`}>
             Groups
-            <View style={tw`bg-[#7A1EF7] rounded-full mx-0.5 `}>
+            <View style={tw`bg-[#30084F] rounded-full mx-0.5 `}>
               <UbuntuText
                 style={tw`text-[#FEFEFE] text-[10px] mx-0.5 text-center`}
               >

@@ -32,7 +32,7 @@ export default function () {
   const { email } = useLocalSearchParams();
   const [otp, setOtp] = useState("");
   const [codeArr, setCodeArr] = useState(
-    Array.from({ length: codeLength }, () => ""),
+    Array.from({ length: codeLength }, () => "")
   );
   const codeInputsRefs = Array.from({ length: codeLength }, () => useRef(null));
 
@@ -60,6 +60,10 @@ export default function () {
     handleVerify();
   };
   const handleVerify = async (otp) => {
+    return router.navigate({
+      pathname: "/profile-setup",
+      // params: { emailVerificationId },
+    });
     console.log(otp, email);
     try {
       const res = await fetch(apiBaseUrl + "/auth/verify-otp", {
@@ -110,15 +114,17 @@ export default function () {
         style={{
           position: "absolute",
           left: 16,
-          top: 39 - StatusBar.currentHeight,
+          top: 39 - (StatusBar.currentHeight || 0),
         }}
       >
-        <BackArrowSvg />
+        <Link href={"/sign-up"} asChild>
+          <BackArrowSvg />
+        </Link>
       </View>
       <View
         style={{
           marginBottom: 11,
-          marginTop: 93 - StatusBar.currentHeight,
+          marginTop: 93 - (StatusBar.currentHeight || 0),
         }}
       >
         <H2>Confirm your mobile number</H2>
@@ -176,8 +182,8 @@ export default function () {
                 fontSize: 20,
               },
               focusedPinCodeContainerStyle: {
-                borderColor: colors.purple,
-                backgroundColor: colors.purple,
+                borderColor: colors.purple4,
+                backgroundColor: colors.purple4,
               },
             }}
           />
@@ -202,7 +208,7 @@ export default function () {
           style={{
             fontSize: 12,
             lineHeight: 14.4,
-            color: colors.purple,
+            color: colors.purple4,
           }}
         >
           RESEND CODE
@@ -210,10 +216,11 @@ export default function () {
       </View>
       <CustomButton
         style={{
-          backgroundColor: colors.purple,
+          backgroundColor: colors.purple4,
           borderRadius: 15,
           paddingHorizontal: 30,
           justifyContent: "center",
+          alignItems: "center",
           height: 30,
         }}
         onPress={() => handleVerify(otp)}
@@ -222,7 +229,7 @@ export default function () {
           weight={500}
           style={{
             fontSize: 14,
-            lineHeight: 14.4,
+            // lineHeight: 14.4,
             color: colors.white,
           }}
         >

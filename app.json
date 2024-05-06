@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "sloop",
-    "slug": "sloop",
+    "name": "jovya",
+    "slug": "jovya",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -10,9 +10,7 @@
       "backgroundColor": "#FAFAFA",
       "image": "./assets/splash-screen.png"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -23,7 +21,9 @@
       }
     },
     "web": {
-      "favicon": "./assets/icon.png"
+      "favicon": "./assets/icon.png",
+      "bundler": "metro",
+      "output": "static"
     },
     "plugins": [
       "expo-router",
@@ -34,8 +34,14 @@
           "cameraPermission": "The app accesses your camera to let you take photos to share with your friends."
         }
       ],
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-av",
+        {
+          "microphonePermission": "Allow $(PRODUCT_NAME) to access your microphone."
+        }
+      ]
     ],
-    "scheme": "sloop"
+    "scheme": "jovya"
   }
 }

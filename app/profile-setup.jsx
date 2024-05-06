@@ -30,6 +30,7 @@ export default function () {
   const [profileImageUri, setProfileImageUri] = useState("");
 
   const handleSubmit = async () => {
+    return router.replace("welcome-page");
     console.log("submitting");
     const formData = new FormData();
 
@@ -72,7 +73,7 @@ export default function () {
         style={{
           position: "absolute",
           right: 21,
-          top: 38 - StatusBar.currentHeight,
+          top: 38 - (StatusBar.currentHeight || 0),
           padding: 10,
         }}
       >
@@ -85,7 +86,7 @@ export default function () {
       <View
         style={{
           marginBottom: 11,
-          marginTop: 93 - StatusBar.currentHeight,
+          marginTop: 93 - (StatusBar.currentHeight || 0),
         }}
       >
         <H2>Profile info</H2>
@@ -172,7 +173,7 @@ export default function () {
 
       <CustomButton
         style={{
-          backgroundColor: colors.purple,
+          backgroundColor: colors.purple4,
           borderRadius: 15,
           paddingHorizontal: 30,
           justifyContent: "center",

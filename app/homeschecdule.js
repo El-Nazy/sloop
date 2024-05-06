@@ -24,7 +24,7 @@ export default function homeschecdule() {
         <CustomButton
           style={{
             borderRadius: 12,
-            backgroundColor: colors.purple,
+            backgroundColor: colors.purple4,
             width: 142,
             height: 35,
           }}

@@ -13,7 +13,7 @@ export const CustomButton = React.forwardRef(
       >
         <Pressable
           android_ripple={{
-            color: colors.darkPurple,
+            color: colors.darkpurple4,
           }}
           style={style}
           ref={ref}
@@ -23,5 +23,5 @@ export const CustomButton = React.forwardRef(
         </Pressable>
       </View>
     );
-  },
+  }
 );
