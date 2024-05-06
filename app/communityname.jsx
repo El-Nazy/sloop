@@ -294,81 +294,62 @@ export default function communityname() {
               <View style={tw`h-px bg-[#9E9CA0] w-full`} />
             </View>
 
-                    <View style={tw`flex justify-center items-center pt-3`}>
-                      <TouchableOpacity onPress={handlePressed}>
-                        <UbuntuText
-                          weight={500}
-                          style={tw`text-[14px] text-[#310A50] self-center pb-3`}
-                        >
-                          View all (19 more)
-                        </UbuntuText>
-                      </TouchableOpacity>
-                    </View>
-                  </ScrollView>
-                </View>
-                <View
-                  style={[
-                    tw``,
-                    Platform.OS === "ios"
-                      ? { paddingTop: paddingDP_IOS }
-                      : { paddingTop: paddingDP_Android },
-                  ]}
+            <View style={tw`flex justify-center items-center pt-3`}>
+              <TouchableOpacity onPress={handlePressed}>
+                <UbuntuText
+                  weight={500}
+                  style={tw`text-[14px] text-[#310A50] self-center pb-3`}
                 >
-                  <View style={tw`w-full bg-[#FFFFFF] shadow-lg h-[48px]`}>
-                    <View style={tw`flex-row px-[16px] pt-3`}>
-                      <Pressable
-                        style={tw`self-center flex-row gap-2 `}
-                        onPress={handlePress}
-                      >
-                        <Exit />
+                  View all (19 more)
+                </UbuntuText>
+              </TouchableOpacity>
+            </View>
+          </ScrollView>
 
-                        <UbuntuText
-                          weight={700}
-                          style={tw`text-[14px] text-[#D41D2B] self-center`}
-                        >
-                          Exit Community
-                        </UbuntuText>
-                      </Pressable>
-                    </View>
-                  </View>
-                </View>
+          <View
+            style={[
+              tw``,
+              Platform.OS === "ios"
+                ? { paddingTop: paddingDP_IOS }
+                : { paddingTop: paddingDP_Android },
+            ]}
+          >
+            <View style={tw`w-full bg-[#FFFFFF] shadow-lg h-[48px]`}>
+              <View style={tw`flex-row px-[16px] pt-3`}>
+                <Pressable
+                  style={tw`self-center flex-row gap-2 `}
+                  onPress={handlePress}
+                >
+                  <Exit />
+
+                  <UbuntuText
+                    weight={700}
+                    style={tw`text-[14px] text-[#D41D2B] self-center`}
+                  >
+                    Exit Community
+                  </UbuntuText>
+                </Pressable>
               </View>
             </View>
           </View>
-        )}
-        {activeTab === "settings" && (
-          <View style={tw`pt-6 `}>
-            <View style={tw`w-full bg-white shadow-sm py-3 px-3`}>
-              <UbuntuText weight={700} style={tw` text-[16px] leading-none`}>
-                Privacy
-              </UbuntuText>
-              <View style={tw`gap-5 pt-5`}>
-                <Pressable onPress={handlePressed}>
-                  <View style={tw`flex-row justify-between  `}>
-                    <View style={tw`gap-2`}>
-                      <UbuntuText
-                        weight={400}
-                        style={tw` text-[12px] leading-none`}
-                      >
-                        Active Status
-                      </UbuntuText>
-                      <UbuntuText
-                        weight={700}
-                        style={tw` text-[12px] leading-none text-[${colors.newgray}]`}
-                      >
-                        Everyone
-                      </UbuntuText>
-                    </View>
-                    <Right style={tw`self-center pt-3`} />
-                  </View>
-                </Pressable>
+        </View>
+      </View>
+      )
+      {activeTab === "settings" && (
+        <View style={tw`pt-6 `}>
+          <View style={tw`w-full bg-white shadow-sm py-3 px-3`}>
+            <UbuntuText weight={700} style={tw` text-[16px] leading-none`}>
+              Privacy
+            </UbuntuText>
+            <View style={tw`gap-5 pt-5`}>
+              <Pressable onPress={handlePressed}>
                 <View style={tw`flex-row justify-between  `}>
                   <View style={tw`gap-2`}>
                     <UbuntuText
                       weight={400}
                       style={tw` text-[12px] leading-none`}
                     >
-                      Profile photo
+                      Active Status
                     </UbuntuText>
                     <UbuntuText
                       weight={700}
@@ -379,138 +360,152 @@ export default function communityname() {
                   </View>
                   <Right style={tw`self-center pt-3`} />
                 </View>
-                <View style={tw`flex-row justify-between  `}>
-                  <View style={tw`gap-2`}>
-                    <UbuntuText
-                      weight={400}
-                      style={tw` text-[12px] leading-none`}
-                    >
-                      Phone Number
-                    </UbuntuText>
-                    <UbuntuText
-                      weight={700}
-                      style={tw` text-[12px] leading-none text-[${colors.newgray}]`}
-                    >
-                      Everyone
-                    </UbuntuText>
-                  </View>
-                  <Right style={tw`self-center pt-3`} />
-                </View>
-                <View style={tw`flex-row justify-between  `}>
-                  <View style={tw`gap-2`}>
-                    <UbuntuText
-                      weight={400}
-                      style={tw` text-[12px] leading-none`}
-                    >
-                      About
-                    </UbuntuText>
-                    <UbuntuText
-                      weight={700}
-                      style={tw` text-[12px] leading-none text-[${colors.newgray}]`}
-                    >
-                      Everyone
-                    </UbuntuText>
-                  </View>
-                  <Right style={tw`self-center pt-3`} />
-                </View>
-              </View>
-            </View>
-            <View style={tw`pt-6 gap-4`}>
-              <View style={tw`w-full bg-white shadow-sm py-5 px-5 `}>
-                <UbuntuText
-                  weight={700}
-                  style={tw`text-black text-[16px] leading-none`}
-                >
-                  Notifications
-                </UbuntuText>
-                <View style={tw`pt-8 gap-6`}>
-                  <Pressable onPress={handleCheckbox}>
-                    <View style={tw`flex-row justify-between items-center`}>
-                      <UbuntuText
-                        weight={400}
-                        style={tw`text-black text-[12px] leading-none`}
-                      >
-                        Show notifications for new messages
-                      </UbuntuText>
-                      <Checkbox
-                        style={tw`h-[12px] w-[12px]`}
-                        value={isChecked}
-                        onValueChange={setChecked}
-                        color={isChecked ? "#310A50" : undefined}
-                      />
-                    </View>
-                  </Pressable>
-                  <View
-                    style={tw`h-px w-full border-[${colors.gray2}] border-b-2`}
-                  />
-                  <Pressable onPress={handleCheckboxed}>
-                    <View style={tw`flex-row justify-between items-center`}>
-                      <UbuntuText
-                        weight={400}
-                        style={tw`text-black text-[12px] leading-none`}
-                      >
-                        Play sound for incoming messages
-                      </UbuntuText>
-                      <Checkbox
-                        style={tw`h-[12px] w-[12px]`}
-                        value={isChecke}
-                        onValueChange={setChecke}
-                        color={isChecke ? "#310A50" : undefined}
-                      />
-                    </View>
-                  </Pressable>
-                  <View
-                    style={tw`h-px w-full border-[${colors.gray2}] border-b-2`}
-                  />
-                </View>
-              </View>
-            </View>
-            <View style={tw`pt-6 `}>
-              <View style={tw`w-full bg-white shadow-sm py-3 px-3`}>
-                <UbuntuText
-                  weight={700}
-                  style={tw`text-black text-[12px] leading-none`}
-                >
-                  Theme
-                </UbuntuText>
-                <View style={tw`flex-row justify-between`}>
+              </Pressable>
+              <View style={tw`flex-row justify-between  `}>
+                <View style={tw`gap-2`}>
                   <UbuntuText
                     weight={400}
-                    style={tw`text-[${colors.darkgray}] text-[12px] leading-none pt-3`}
+                    style={tw` text-[12px] leading-none`}
                   >
-                    Dark mode
+                    Profile photo
                   </UbuntuText>
-                  <Pressable onPress={togglePosition}>
-                    <View
-                      style={[
-                        tw`bg-[${
-                          toggle === "right" ? colors.purple3 : colors.white
-                        }] w-[31.7px] h-[20px] rounded-full border-[${
-                          colors.darkGray
-                        }] border-[3px] items-start rounded-[18px]`,
-                      ]}
-                    >
-                      <View
-                        style={[
-                          tw`rounded-full w-[14px] h-[14px] p-1.5 absolute transform `,
-                          {
-                            backgroundColor:
-                              toggle === "right"
-                                ? colors.white
-                                : colors.darkGray,
-                          },
-                          toggle === "right" && tw`right-0`,
-                        ]}
-                      />
-                    </View>
-                  </Pressable>
+                  <UbuntuText
+                    weight={700}
+                    style={tw` text-[12px] leading-none text-[${colors.newgray}]`}
+                  >
+                    Everyone
+                  </UbuntuText>
                 </View>
+                <Right style={tw`self-center pt-3`} />
+              </View>
+              <View style={tw`flex-row justify-between  `}>
+                <View style={tw`gap-2`}>
+                  <UbuntuText
+                    weight={400}
+                    style={tw` text-[12px] leading-none`}
+                  >
+                    Phone Number
+                  </UbuntuText>
+                  <UbuntuText
+                    weight={700}
+                    style={tw` text-[12px] leading-none text-[${colors.newgray}]`}
+                  >
+                    Everyone
+                  </UbuntuText>
+                </View>
+                <Right style={tw`self-center pt-3`} />
+              </View>
+              <View style={tw`flex-row justify-between  `}>
+                <View style={tw`gap-2`}>
+                  <UbuntuText
+                    weight={400}
+                    style={tw` text-[12px] leading-none`}
+                  >
+                    About
+                  </UbuntuText>
+                  <UbuntuText
+                    weight={700}
+                    style={tw` text-[12px] leading-none text-[${colors.newgray}]`}
+                  >
+                    Everyone
+                  </UbuntuText>
+                </View>
+                <Right style={tw`self-center pt-3`} />
               </View>
             </View>
           </View>
-        )}
-      </View>
-
+          <View style={tw`pt-6 gap-4`}>
+            <View style={tw`w-full bg-white shadow-sm py-5 px-5 `}>
+              <UbuntuText
+                weight={700}
+                style={tw`text-black text-[16px] leading-none`}
+              >
+                Notifications
+              </UbuntuText>
+              <View style={tw`pt-8 gap-6`}>
+                <Pressable onPress={handleCheckbox}>
+                  <View style={tw`flex-row justify-between items-center`}>
+                    <UbuntuText
+                      weight={400}
+                      style={tw`text-black text-[12px] leading-none`}
+                    >
+                      Show notifications for new messages
+                    </UbuntuText>
+                    <Checkbox
+                      style={tw`h-[12px] w-[12px]`}
+                      value={isChecked}
+                      onValueChange={setChecked}
+                      color={isChecked ? "#310A50" : undefined}
+                    />
+                  </View>
+                </Pressable>
+                <View
+                  style={tw`h-px w-full border-[${colors.gray2}] border-b-2`}
+                />
+                <Pressable onPress={handleCheckboxed}>
+                  <View style={tw`flex-row justify-between items-center`}>
+                    <UbuntuText
+                      weight={400}
+                      style={tw`text-black text-[12px] leading-none`}
+                    >
+                      Play sound for incoming messages
+                    </UbuntuText>
+                    <Checkbox
+                      style={tw`h-[12px] w-[12px]`}
+                      value={isChecke}
+                      onValueChange={setChecke}
+                      color={isChecke ? "#310A50" : undefined}
+                    />
+                  </View>
+                </Pressable>
+                <View
+                  style={tw`h-px w-full border-[${colors.gray2}] border-b-2`}
+                />
+              </View>
+            </View>
+          </View>
+          <View style={tw`pt-6 `}>
+            <View style={tw`w-full bg-white shadow-sm py-3 px-3`}>
+              <UbuntuText
+                weight={700}
+                style={tw`text-black text-[12px] leading-none`}
+              >
+                Theme
+              </UbuntuText>
+              <View style={tw`flex-row justify-between`}>
+                <UbuntuText
+                  weight={400}
+                  style={tw`text-[${colors.darkgray}] text-[12px] leading-none pt-3`}
+                >
+                  Dark mode
+                </UbuntuText>
+                <Pressable onPress={togglePosition}>
+                  <View
+                    style={[
+                      tw`bg-[${
+                        toggle === "right" ? colors.purple3 : colors.white
+                      }] w-[31.7px] h-[20px] rounded-full border-[${
+                        colors.darkGray
+                      }] border-[3px] items-start rounded-[18px]`,
+                    ]}
+                  >
+                    <View
+                      style={[
+                        tw`rounded-full w-[14px] h-[14px] p-1.5 absolute transform `,
+                        {
+                          backgroundColor:
+                            toggle === "right" ? colors.white : colors.darkGray,
+                        },
+                        toggle === "right" && tw`right-0`,
+                      ]}
+                    />
+                  </View>
+                </Pressable>
+              </View>
+            </View>
+          </View>
+        </View>
+      )}
       {modalVisible && (
         <View
           style={tw`absolute inset-0 z-20  bg-black bg-opacity-30     w-full h-full flex-1 `}
