@@ -123,6 +123,61 @@ export default function chats() {
                 <View
                   style={tw`bg-white border-[#00000009] border-[0.7px] rounded-[12px] rounded-tl-[4px] gap-[10px] overflow-hidden pb-1 pt-[2]`}
                 >
+                  {/* <Image
+                    style={tw`h-[41px] mx-[2] ${"rounded-tr-[8px]"}`}
+                    source={require("../assets/document.png")}
+                  /> */}
+                  <View
+                    style={tw`mx-[2px] rounded-[6px] h-[46px] bg-[#FFFBE3] border-[#F28F8F] border-l-[3px] flex-row justify-between overflow-hidden`}
+                  >
+                    <View style={tw`justify-between h-full p-[4px]`}>
+                      <UbuntuText
+                        style={tw` text-[12px] text-[#F28F8F] leading-[18px]`}
+                      >
+                        You
+                      </UbuntuText>
+                      <UbuntuText
+                        style={tw`text-[${colors.newGray}] text-[14px] leading-[18px]`}
+                      >
+                        Photo
+                      </UbuntuText>
+                    </View>
+                    <Image
+                      style={tw`w-[46px] aspect-square"}`}
+                      source={require("../assets/reply.png")}
+                    />
+                  </View>
+                  <View style={tw`flex-row mx-[10]`}>
+                    <UbuntuText
+                      weight={400}
+                      style={tw`text-[#AFA9B2] text-[12px] leading-[18px] gap-[10px]`}
+                    >
+                      Vitae et sem lobortis odio ornare sed. Rhoncus hendrerit
+                      tincidunt sit iaculis commodo vitae suscipit nibh. Sit sit
+                      sed.
+                      <View style={tw`w-15 h-3`}></View>
+                    </UbuntuText>
+                    <View style={tw`self-end absolute right-0`}>
+                      <UbuntuText
+                        weight={400}
+                        style={tw`text-[#B0B0B0] text-[10px] leading-[11.49px] text-right self-end relative right-0 bottom-0 w-15`}
+                      >
+                        10:00 AM
+                      </UbuntuText>
+                    </View>
+                  </View>
+                  {/* <View style={tw`absolute right-2 bottom-2`}>
+                    <UbuntuText
+                      weight={400}
+                      style={tw`text-white text-[10px] leading-[11.49px]`}
+                    >
+                      10:00 AM
+                    </UbuntuText>
+                  </View> */}
+                </View>
+                <View
+                  style={tw`bg-white border-[#00000009] border-[0.7px] rounded-[12px] rounded-tl-[4px] gap-[10px] overflow-hidden pb-1 pt-[2]`}
+                >
                   <Image
                     style={tw`aspect-square mx-[2] rounded-tl-[4px] rounded-br-[4px] rounded-tr-[8px] rounded-bl-[12px]`}
                     source={require("../assets/Frame1.jpg")}
