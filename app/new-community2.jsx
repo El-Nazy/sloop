@@ -19,6 +19,7 @@ export default function () {
   const [logoImageUri, setLogoImageUri] = useState("");
 
   const handleSubmit = async () => {
+    return router.replace("home");
     const formData = new FormData();
 
     if (logoImageUri)
@@ -48,9 +49,9 @@ export default function () {
         },
       });
       console.log(response.data);
-      // router.replace("welcome-page");
-      // SecureStore.setItemAsync("authToken", response.data.authToken);
-      // AsyncStorage.setItem("user", JSON.stringify(response.data.user));
+      router.replace("welcome-page");
+      SecureStore.setItemAsync("authToken", response.data.authToken);
+      AsyncStorage.setItem("user", JSON.stringify(response.data.user));
     } catch (error) {
       console.error(error);
       // return null;
@@ -70,7 +71,9 @@ export default function () {
           gap: 16,
         }}
       >
-        <WhiteBackIconSvg />
+        <Link href={"/new-community"} asChild>
+          <WhiteBackIconSvg />
+        </Link>
         <View>
           <UbuntuText
             weight={500}

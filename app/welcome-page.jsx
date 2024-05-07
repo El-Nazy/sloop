@@ -13,14 +13,15 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function () {
   const [userImageUrl, setUserImageUrl] = useState("");
-  // AsyncStorage.getItem("user").then((user) => {
-  //   console.log(user);
-  //   setUserImageUrl(JSON.parse(user).profileImageUrl);
-  //   // console.log(userImage);
-  // });
-  // useEffect(() => {
-  //   async () => {};
-  // }, [userImage]);
+
+  useEffect(() => {
+    AsyncStorage.getItem("user").then((user) => {
+      console.log(user);
+      setUserImageUrl(JSON.parse(user).profileImageUrl);
+      console.log(userImageUrl);
+    });
+  }, []);
+  
   return (
     <SafeArea backgroundColor={colors.purple4} barStyle="light">
       <View

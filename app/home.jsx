@@ -19,7 +19,7 @@ export default function () {
   return (
     <>
       <View style={tw`flex-1 bg-white`}>
-        <View style={tw`flex flex-row `}>
+        <View style={tw`flex flex-row justify-between`}>
           <View
             style={tw`px-5 bg-white  my-3 mx-1 rounded-lg flex flex-row gap-3  shadow-md`}
           >
@@ -37,14 +37,14 @@ export default function () {
             </UbuntuText>
           </View>
 
-          <View style={tw`flex flex-row relative left-24 gap-5 my-2`}>
+          <View style={tw`flex flex-row gap-5 my-2`}>
             <Notification />
             <Search />
             <Horizontal />
           </View>
         </View>
         <View
-          style={tw`flex flex-row p-3 my-3 gap-20 bg-white shadow border-b-[#30084F]`}
+          style={tw`flex flex-row p-3 my-3 justify-between bg-white shadow border-b-[#30084F]`}
         >
           <UbuntuText weight={500} style={tw`font-bold text-[#040009]`}>
             UPdates

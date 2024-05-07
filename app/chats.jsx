@@ -42,7 +42,7 @@ export default function chats() {
         </View>
         <View style={tw`flex flex-row items-center ml-auto gap-4`}>
           <Down />
-          <Message />
+          {/* <Message /> */}
           <Vertical />
         </View>
       </View>
@@ -61,11 +61,11 @@ export default function chats() {
                 <But>Add members</But>
                 <But>Invite via link</But>
               </View>
-              <Info>February 10, 2023</Info>
               <Info>Group was created</Info>
+              {/* <Info>February 10, 2023</Info>
               <Info>An admin updated the bio</Info>
+              <Info>Emmanuel Onyema joined</Info> */}
               <Info>An admin changed the profile photo</Info>
-              <Info>Emmanuel Onyema joined</Info>
               <Info>Augustine Micheal Okechukwu joined</Info>
             </>
             <View style={tw`gap-[9px] flex-row w-[70%]`}>
@@ -121,7 +121,42 @@ export default function chats() {
                   <AudioPlayer />
                 </View>
                 <View
-                  style={tw`bg-white border-[#00000009] border-[0.7px] rounded-[12px] rounded-tl-[4px] gap-1 overflow-hidden`}
+                  style={tw`bg-white border-[#00000009] border-[0.7px] rounded-[12px] rounded-tl-[4px] gap-[10px] overflow-hidden pb-1 pt-[2]`}
+                >
+                  <Image
+                    style={tw`aspect-square mx-[2] rounded-tl-[4px] rounded-br-[4px] rounded-tr-[8px] rounded-bl-[12px]`}
+                    source={require("../assets/Frame1.jpg")}
+                  />
+                  <View style={tw`flex-row mx-[10]`}>
+                    <UbuntuText
+                      weight={400}
+                      style={tw`text-[#AFA9B2] text-[12px] leading-[18px] gap-[10px]`}
+                    >
+                      Vitae et sem lobortis odio ornare sed. Rhoncus hendrerit
+                      tincidunt sit iaculis commodo vitae suscipit nibh. Sit sit
+                      sed.
+                      <View style={tw`w-15 h-3`}></View>
+                    </UbuntuText>
+                    <View style={tw`self-end absolute right-0`}>
+                      <UbuntuText
+                        weight={400}
+                        style={tw`text-[#B0B0B0] text-[10px] leading-[11.49px] text-right self-end relative right-0 bottom-0 w-15`}
+                      >
+                        10:00 AM
+                      </UbuntuText>
+                    </View>
+                  </View>
+                  {/* <View style={tw`absolute right-2 bottom-2`}>
+                    <UbuntuText
+                      weight={400}
+                      style={tw`text-white text-[10px] leading-[11.49px]`}
+                    >
+                      10:00 AM
+                    </UbuntuText>
+                  </View> */}
+                </View>
+                <View
+                  style={tw`bg-white border-[#00000009] border-[0.7px] rounded-[12px] rounded-tl-[4px] gap-[10] overflow-hidden`}
                 >
                   <Image
                     style={tw`aspect-square`}
@@ -252,16 +287,24 @@ function AudioPlayer() {
 
   return (
     <View>
-      <View style={tw`flex-row items-center gap-1`}>
+      <View style={tw`flex-row items-center`}>
         <Play />
         <Slider
-          style={tw`flex-1`} // Adjust width as needed
+          style={[
+            {
+              transform: [{ scale: 0.8 }],
+              // backgroundColor: "black",
+            },
+            tw`scale-y-50 flex-1`,
+          ]} // Adjust width as needed
           minimumValue={0}
           maximumValue={100}
           value={value} // Set initial value from state
           onValueChange={handleChange} // Function to update state on change
           thumbTintColor={colors.darkPurple}
           tapToSeek={true}
+          maximumTrackTintColor={colors.anotherGray}
+          minimumTrackTintColor={colors.newGray}
         />
 
         {/* <View style={tw`rounded-[12px] flex-1 h-[2px] bg-[#D9D9D9]`} /> */}

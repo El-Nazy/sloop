@@ -73,34 +73,3 @@ export default function () {
   // return <Redirect href={"/join-community"} />;
   // return <Redirect href={"/request-sent"} />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    // flex: 1,
-    // backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-  activeSubMenuText: {
-    fontSize: 18,
-  },
-  subMenuText: {
-    fontSize: 18,
-    color: "#706080",
-  },
-  activeSubMenuView: {
-    // flex: 1,
-    alignItems: "center",
-    borderStyle: "solid",
-    borderBottomWidth: 3,
-    borderBottomColor: "#30084F",
-    paddingHorizontal: 24,
-    paddingVertical: 12,
-  },
-  subMenuView: {
-    paddingVertical: 12,
-    paddingHorizontal: 24,
-    // flex: 1,
-    // alignItems: "center",
-  },
-});

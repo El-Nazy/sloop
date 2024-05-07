@@ -137,7 +137,7 @@ export default function () {
         }}
       >
         <Link
-          href={"/profile-setup"}
+          href={"/new-community2"}
           asChild
           style={{
             backgroundColor: colors.purple4,
