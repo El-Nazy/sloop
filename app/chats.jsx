@@ -14,6 +14,26 @@ import { Audio } from "expo-av";
 import Slider from "@react-native-community/slider";
 import { colors } from "../utils/constants";
 
+const messages = [
+  {
+    sender: "id1",
+    // group: Types.ObjectId,
+    // replyingTo: "Types.ObjectId",
+    // replyingTo?: Types.ObjectId,
+    text: "string",
+    // text?: "string",
+    file: {
+      url: "URL HERE",
+      ext: "EXT HERE",
+    },
+    // media?: ["URL HERE"],
+    // seenCount: number,
+    // deliveredCount: number,
+    // audienceCount: number,
+    createdAt: new Date(),
+  },
+];
+
 export default function chats() {
   return (
     <View style={tw`flex-1 bg-gray-200`}>
