@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Text, View, Button, Platform } from "react-native";
 import * as Device from "expo-device";
 import * as Notifications from "expo-notifications";
@@ -85,8 +85,7 @@ async function registerForPushNotificationsAsync() {
 
 export default function notifs() {
   const [expoPushToken, setExpoPushToken] = useState("");
-  const [notification, setNotification] =
-    (useState < Notifications.Notification) | (undefined > undefined);
+  const [notification, setNotification] = useState(undefined);
   const notificationListener = useRef();
   // const notificationListener = useRef<Notifications.Subscription>();
   const responseListener = useRef();

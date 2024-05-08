@@ -7,18 +7,24 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "backgroundColor": "#FAFAFA",
+      "backgroundColor": "#FEFEFE",
       "image": "./assets/splash-screen.png"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#FEFEFE"
+      },
+      "permissions": [
+        "android.permission.RECORD_AUDIO",
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ]
     },
     "web": {
       "favicon": "./assets/icon.png",
@@ -42,6 +48,15 @@
         }
       ]
     ],
-    "scheme": "jovya"
+    "scheme": "jovya",
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "9ad0ff2f-39c5-4ce8-a759-a49bbfb8a9f4"
+      }
+    },
+    "owner": "el-nazy"
   }
 }

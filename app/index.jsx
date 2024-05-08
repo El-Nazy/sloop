@@ -11,13 +11,14 @@ export default function () {
 
   if (!rootNavigationState?.key) return null;
   // console.log("\n\n\nhere\n\n\n");
-  return <Redirect href={"/on-boarding"} />;
+  // return <Redirect href={"/on-boarding"} />;
   // return <Redirect href={"/home"} />;
   // return <Redirect href={"/welcome-group"} />;
   // return <Redirect href={"/event"} />;
   // return <Redirect href={"/create-event"} />;
   // return <Redirect href={"/createdevent"} />;
-  // return <Redirect href={"/chats"} />;
+  return <Redirect href={"/notifs"} />;
+  return <Redirect href={"/chats"} />;
   // return <Redirect href={"/Eventroll"} />;
   // return <Redirect href={"/shecdulecontent"} />;
   // return <Redirect href={"/communityname"} />;
