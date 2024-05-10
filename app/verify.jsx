@@ -1,3 +1,5 @@
+import { OnboardingNextButton } from "./on-boarding";
+import tw from "twrnc";
 import {
   Button,
   Pressable,
@@ -6,6 +8,7 @@ import {
   TouchableOpacity,
   StatusBar,
   View,
+  ScrollView,
 } from "react-native";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { apiBaseUrl, appName, colors } from "../utils/constants";
@@ -34,7 +37,7 @@ export default function () {
   const [codeArr, setCodeArr] = useState(
     Array.from({ length: codeLength }, () => "")
   );
-  const codeInputsRefs = Array.from({ length: codeLength }, () => useRef(null));
+  // const codeInputsRefs = Array.from({ length: codeLength }, () => useRef(null));
 
   const handleCodeInput = (code, index) => {
     if (!code) return;
@@ -109,86 +112,90 @@ export default function () {
   };
 
   return (
-    <SafeArea>
-      <View
-        style={{
-          position: "absolute",
-          left: 16,
-          top: 39 - (StatusBar.currentHeight || 0),
-        }}
+    <SafeArea viewStyle={tw`px-4`}>
+      <ScrollView
+        style={tw`w-full`}
+        contentContainerStyle={tw`items-center px-8`}
       >
-        <Link href={"/sign-up"} asChild>
-          <BackArrowSvg />
-        </Link>
-      </View>
-      <View
-        style={{
-          marginBottom: 11,
-          marginTop: 93 - (StatusBar.currentHeight || 0),
-        }}
-      >
-        <H2>Confirm your mobile number</H2>
-      </View>
-      <View
-        style={{
-          marginBottom: 30,
-          width: 226,
-        }}
-      >
-        <UbuntuText
+        <View
           style={{
-            fontSize: 10,
-            lineHeight: 11.49,
-            color: colors.mediumGray,
-            textAlign: "center",
+            position: "absolute",
+            left: 16,
+            top: 39 - (StatusBar.currentHeight || 0),
           }}
         >
-          {appName} has sent a 4-digits confirmation code to {email}
-        </UbuntuText>
-      </View>
-      <View
-        style={{
-          flexDirection: "row",
-          marginBottom: 60,
-          gap: 12,
-        }}
-      >
-        {fontsLoaded && (
-          <OtpInput
-            onFilled={handleVerify}
-            numberOfDigits={codeLength}
-            // focusColor={colors.purple}
-            onTextChange={setOtp}
-            hideStick={true}
-            theme={{
-              inputsContainerStyle: {
-                justifyContent: "center",
-                flexDirection: "row",
-                gap: 12,
-              },
-              pinCodeContainerStyle: {
-                width: 42,
-                height: 42,
-                borderRadius: 21,
-                borderWidth: 0,
-                borderColor: colors.purple2,
-                borderRightWidth: 2,
-                transform: [{ rotate: "90deg" }],
-              },
-              pinCodeTextStyle: {
-                transform: [{ rotate: "-90deg" }],
-                fontFamily: "Ubuntu-Regular",
-                color: colors.black,
-                fontSize: 20,
-              },
-              focusedPinCodeContainerStyle: {
-                borderColor: colors.purple4,
-                backgroundColor: colors.purple4,
-              },
+          <Link replace href={"/sign-in"} asChild>
+            <BackArrowSvg />
+          </Link>
+        </View>
+        <View
+          style={{
+            marginBottom: 11,
+            marginTop: 93 - (StatusBar.currentHeight || 0),
+          }}
+        >
+          <H2>Confirm your email address</H2>
+        </View>
+        <View
+          style={{
+            marginBottom: 30,
+            width: 226,
+          }}
+        >
+          <UbuntuText
+            style={{
+              fontSize: 16,
+              lineHeight: 19.2,
+              color: colors.mediumGray,
+              textAlign: "center",
             }}
-          />
-        )}
-        {/* {codeInputsRefs.map((codeInputRef, index) => {
+          >
+            {appName} has sent a 4-digits confirmation code to {email}
+          </UbuntuText>
+        </View>
+        <View
+          style={{
+            flexDirection: "row",
+            marginBottom: 60,
+            gap: 12,
+          }}
+        >
+          {fontsLoaded && (
+            <OtpInput
+              onFilled={handleVerify}
+              numberOfDigits={codeLength}
+              // focusColor={colors.purple}
+              onTextChange={setOtp}
+              hideStick={true}
+              theme={{
+                inputsContainerStyle: {
+                  justifyContent: "center",
+                  flexDirection: "row",
+                  gap: 12,
+                },
+                pinCodeContainerStyle: {
+                  width: 42,
+                  height: 42,
+                  borderRadius: 21,
+                  borderWidth: 0,
+                  borderColor: colors.purple,
+                  borderRightWidth: 2,
+                  transform: [{ rotate: "90deg" }],
+                },
+                pinCodeTextStyle: {
+                  transform: [{ rotate: "-90deg" }],
+                  fontFamily: "Ubuntu-Regular",
+                  color: colors.black,
+                  fontSize: 20,
+                },
+                focusedPinCodeContainerStyle: {
+                  borderColor: colors.purple4,
+                  backgroundColor: colors.purple4,
+                },
+              }}
+            />
+          )}
+          {/* {codeInputsRefs.map((codeInputRef, index) => {
           return (
             <CircleInput
               key={index}
@@ -198,23 +205,24 @@ export default function () {
             />
           );
         })} */}
-      </View>
-      <View
-        style={{
-          marginBottom: 60,
-        }}
-      >
-        <UbuntuText
+        </View>
+        <View
           style={{
-            fontSize: 12,
-            lineHeight: 14.4,
-            color: colors.purple4,
+            marginBottom: 60,
           }}
         >
-          RESEND CODE
-        </UbuntuText>
-      </View>
-      <CustomButton
+          <UbuntuText
+            style={{
+              fontSize: 12,
+              lineHeight: 14.4,
+              color: colors.purple4,
+            }}
+          >
+            RESEND CODE
+          </UbuntuText>
+        </View>
+      </ScrollView>
+      {/* <CustomButton
         style={{
           backgroundColor: colors.purple4,
           borderRadius: 15,
@@ -235,7 +243,8 @@ export default function () {
         >
           CONTINUE
         </UbuntuText>
-      </CustomButton>
+      </CustomButton> */}
+      <OnboardingNextButton replace href="profile-setup" text="CONFIRM" />
     </SafeArea>
   );
 }

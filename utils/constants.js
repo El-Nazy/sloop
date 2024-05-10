@@ -22,8 +22,9 @@ export const colors = Object.freeze({
   darkGray: "#0A090C",
   newGray: "#9E9CA0",
   anotherGray: "#D9D9D9",
+  newGray1: "#AFA9B2",
 });
-
+// #AFA9B2
 export const appName = "sLOOP";
 
 export const apiBaseUrl = "https://rabbit-honest-ibex.ngrok-free.app/api/v1";

@@ -3,19 +3,19 @@ import { Pressable, View } from "react-native";
 import { colors } from "../utils/constants";
 
 export const CustomButton = React.forwardRef(
-  ({ children, style = {}, ...props }, ref) => {
+  ({ children, borderRadius, android_ripple, ...props }, ref) => {
     return (
       <View
         style={{
           overflow: "hidden",
-          borderRadius: style && style.borderRadius,
+          // borderRadius,
         }}
       >
         <Pressable
           android_ripple={{
-            color: colors.darkpurple4,
+            color: colors.newGray,
+            ...android_ripple,
           }}
-          style={style}
           ref={ref}
           {...props}
         >

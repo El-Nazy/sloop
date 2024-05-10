@@ -11,21 +11,24 @@ export default function () {
 
   if (!rootNavigationState?.key) return null;
   // console.log("\n\n\nhere\n\n\n");
-  // return <Redirect href={"/on-boarding"} />;
+  return <Redirect href={"/on-boarding"} />;
+  // return <Redirect href={"/sign-in"} />;
+  // return <Redirect href={"/verify"} />;
+  return <Redirect href={"/profile-setup"} />;
   // return <Redirect href={"/home"} />;
   // return <Redirect href={"/welcome-group"} />;
   // return <Redirect href={"/event"} />;
   // return <Redirect href={"/create-event"} />;
   // return <Redirect href={"/createdevent"} />;
-  return <Redirect href={"/notifs"} />;
-  return <Redirect href={"/chats"} />;
+  // return <Redirect href={"/notifs"} />;
+  // return <Redirect href={"/chats"} />;
   // return <Redirect href={"/Eventroll"} />;
   // return <Redirect href={"/shecdulecontent"} />;
   // return <Redirect href={"/communityname"} />;
   // return <Redirect href={"/communitysafe"} />;
   // return <Redirect href={"/community-report"} />;
   // return <Redirect href={"/communitydone"} />;
-  return <Redirect href={"/communityblock"} />;
+  // return <Redirect href={"/communityblock"} />;
   // return <Redirect href={"/communityblock"} />;
   // return <Redirect href={"/homeschecdule"} />;
   // return <Redirect href={"/viewschecduled"} />;

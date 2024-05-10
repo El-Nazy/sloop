@@ -163,7 +163,7 @@ export default function chats() {
                       </UbuntuText>
                     </View>
                     <Image
-                      style={tw`w-[46px] aspect-square"}`}
+                      style={tw`aspect-square`}
                       source={require("../assets/reply.png")}
                     />
                   </View>
@@ -370,7 +370,7 @@ function AudioPlayer() {
               transform: [{ scale: 0.8 }],
               // backgroundColor: "black",
             },
-            tw`scale-y-50 flex-1`,
+            tw`flex-1`,
           ]} // Adjust width as needed
           minimumValue={0}
           maximumValue={100}
