@@ -74,8 +74,8 @@ export default function () {
   return (
     <SafeArea viewStyle={tw`px-4`}>
       <ScrollView
-        style={tw`flex-1 w-full`}
-        contentContainerStyle={tw`items-center `}
+        style={tw`flex-1 w-full `}
+        contentContainerStyle={tw`items-center px-8`}
       >
         <View
           style={{
@@ -93,7 +93,7 @@ export default function () {
         </View>
         <View
           style={{
-            marginBottom: 11,
+            marginBottom: 20,
             marginTop: 93 - (StatusBar.currentHeight || 0),
           }}
         >
@@ -102,16 +102,16 @@ export default function () {
         <View
           style={{
             marginBottom: 30,
-            width: 226,
+            // width: "226",
           }}
         >
           <UbuntuText
             style={{
-              fontSize: 12,
-              lineHeight: 11.49,
-              color: colors.mediumGray,
+              fontSize: 16,
+              lineHeight: 19.2,
+              color: colors.newGray,
               textAlign: "center",
-              width: 220,
+              // width: "100%",
             }}
           >
             Adding a profile info makes you more genuine and recognizable,

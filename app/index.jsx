@@ -11,7 +11,7 @@ export default function () {
 
   if (!rootNavigationState?.key) return null;
   // console.log("\n\n\nhere\n\n\n");
-  return <Redirect href={"/on-boarding"} />;
+  // return <Redirect href={"/on-boarding"} />;
   // return <Redirect href={"/sign-in"} />;
   // return <Redirect href={"/verify"} />;
   return <Redirect href={"/profile-setup"} />;
