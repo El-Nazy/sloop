@@ -11,16 +11,18 @@ export default function () {
 
   if (!rootNavigationState?.key) return null;
   // console.log("\n\n\nhere\n\n\n");
-  // return <Redirect href={"/on-boarding"} />;
+  return <Redirect href={"/on-boarding"} />;
   // return <Redirect href={"/sign-in"} />;
   // return <Redirect href={"/verify"} />;
-  return <Redirect href={"/profile-setup"} />;
+  // TODO: CONTINUE TO FIX UP PROFILE SETUP
+  // return <Redirect href={"/profile-setup"} />;
   // return <Redirect href={"/home"} />;
   // return <Redirect href={"/welcome-group"} />;
   // return <Redirect href={"/event"} />;
   // return <Redirect href={"/create-event"} />;
   // return <Redirect href={"/createdevent"} />;
   // return <Redirect href={"/notifs"} />;
+  // return <Redirect href={"/fire"} />;
   // return <Redirect href={"/chats"} />;
   // return <Redirect href={"/Eventroll"} />;
   // return <Redirect href={"/shecdulecontent"} />;
