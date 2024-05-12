@@ -1,21 +1,95 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { PermissionsAndroid, Text, View } from "react-native";
 import messaging from "@react-native-firebase/messaging";
+import * as Device from "expo-device";
+import * as Notifications from "expo-notifications";
+import Constants from "expo-constants";
+
+function handleRegistrationError(errorMessage) {
+  alert(errorMessage);
+  throw new Error(errorMessage);
+}
+
+async function registerForPushNotificationsAsync() {
+  if (Platform.OS === "android") {
+    Notifications.setNotificationChannelAsync("default", {
+      name: "default",
+      importance: Notifications.AndroidImportance.MAX,
+      vibrationPattern: [0, 250, 250, 250],
+      lightColor: "#FF231F7C",
+    });
+  }
+
+  if (Device.isDevice) {
+    const { status: existingStatus } =
+      await Notifications.getPermissionsAsync();
+    let finalStatus = existingStatus;
+    if (existingStatus !== "granted") {
+      const { status } = await Notifications.requestPermissionsAsync();
+      finalStatus = status;
+    }
+    if (finalStatus !== "granted") {
+      handleRegistrationError(
+        "Permission not granted to get push token for push notification!"
+      );
+      return;
+    }
+    const projectId =
+      Constants?.expoConfig?.extra?.eas?.projectId ??
+      Constants?.easConfig?.projectId;
+    if (!projectId) {
+      handleRegistrationError("Project ID not found");
+    }
+    try {
+      const pushTokenString = (
+        await Notifications.getExpoPushTokenAsync({
+          projectId,
+        })
+      ).data;
+      console.log(pushTokenString);
+      return pushTokenString;
+    } catch (e) {
+      handleRegistrationError(`${e}`);
+    }
+  } else {
+    handleRegistrationError("Must use physical device for push notifications");
+  }
+}
 
 export default function fire() {
+  const [expoPushToken, setExpoPushToken] = useState("");
+  const [notification, setNotification] = useState(undefined);
+  const notificationListener = useRef();
+  // const notificationListener = useRef<Notifications.Subscription>();
+  const responseListener = useRef();
+  // alert("alerted");
   useEffect(() => {
-    PermissionsAndroid.request(
-      PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
-    );
+    // alert("alerted2");
+    registerForPushNotificationsAsync()
+      .then((token) => {
+        setExpoPushToken(token ?? "");
+        console.log(token);
+      })
+      .catch((error) => setExpoPushToken(`${error}`));
 
+    // PermissionsAndroid.request(
+    //   PermissionsAndroid.PERMISSIONS.POST_NOTIFICATIONS
+    // );
+
+    // alert("alerted3");
     const token = messaging()
       .getToken
       // {appName: ""}
-      ();
-    alert(`messaging token ${token}`);
+      ()
+      .then((token) => {
+        // alert(`messaging token ${token}`);
+        console.log(token);
+      });
 
     const unsubscribe = messaging().onMessage(async (remoteMessage) => {
-      alert(`'A new FCM message arrived!', ${JSON.stringify(remoteMessage)}`);
+      console.log(
+        `'A new FCM message arrived!', ${JSON.stringify(remoteMessage)}`
+      );
     });
 
     return unsubscribe;
