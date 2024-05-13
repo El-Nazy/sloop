@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "jovya",
+    "name": "Jovya",
     "slug": "jovya",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -10,9 +10,7 @@
       "backgroundColor": "#FEFEFE",
       "image": "./assets/splash-screen.png"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
