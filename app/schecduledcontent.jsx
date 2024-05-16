@@ -22,9 +22,7 @@ export default function schecduledcontent() {
           <Horizontal />
         </View>
         <View style={tw`h-px w-full bg-[#9E9CA0]`} />
-        <View
-          style={tw`flex-row justify-between justify-center items-center gap-12`}
-        >
+        <View style={tw`flex-row justify-between items-center gap-12`}>
           <View
             style={tw`px-[16px] flex-row items-center justify-center gap-1`}
           >

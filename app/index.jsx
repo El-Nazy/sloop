@@ -17,6 +17,7 @@ export default function () {
   // return <Redirect href={"/event"} />;
   // return <Redirect href={"/create-event"} />;
   // return <Redirect href={"/createdevent"} />;
+  return <Redirect href={"/Notification"} />;
   // return <Redirect href={"/chats"} />;
   // return <Redirect href={"/Eventroll"} />;
   // return <Redirect href={"/shecdulecontent"} />;
@@ -24,7 +25,7 @@ export default function () {
   // return <Redirect href={"/communitysafe"} />;
   // return <Redirect href={"/community-report"} />;
   // return <Redirect href={"/communitydone"} />;
-  return <Redirect href={"/communityblock"} />;
+  // return <Redirect href={"/communityblock"} />;
   // return <Redirect href={"/communityblock"} />;
   // return <Redirect href={"/homeschecdule"} />;
   // return <Redirect href={"/viewschecduled"} />;
