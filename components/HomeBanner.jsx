@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
-import Notify from "../assets/basil_notification-outline.svg";
-import Search from "../assets/Icon.svg";
+import Notify from "../assets/BellNotification.svg";
+import Search from "../assets/SearchBar.svg";
 import Horizontal from "../assets/mi_options-vertical.svg";
 import { UbuntuText } from "../components/Texts";
 import tw, { style } from "twrnc";

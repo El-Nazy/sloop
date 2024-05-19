@@ -13,11 +13,13 @@ export default function () {
   // console.log("\n\n\nhere\n\n\n");
   // return <Redirect href={"/on-boarding"} />;
   // return <Redirect href={"/home"} />;
+  return <Redirect href={"(tabs)/tabindex"} />;
   // return <Redirect href={"/welcome-group"} />;
   // return <Redirect href={"/event"} />;
   // return <Redirect href={"/create-event"} />;
   // return <Redirect href={"/createdevent"} />;
-  return <Redirect href={"/Notification"} />;
+  // return <Redirect href={"/Notification"} />;
+  // return <Redirect href={"/managecommunity"} />;
   // return <Redirect href={"/chats"} />;
   // return <Redirect href={"/Eventroll"} />;
   // return <Redirect href={"/shecdulecontent"} />;
