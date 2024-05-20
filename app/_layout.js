@@ -7,7 +7,7 @@ import * as Updates from "expo-updates";
 export const AppContext = createContext();
 export let updateAppData = () => {
 }
-export let appData = {}
+// export let appData = {}
 export let clearAppData = () => {
 }
 export let resetNavigationTo = () => {
@@ -18,22 +18,22 @@ export default function Layout() {
 
   const [appState, setAppState] = useState(["production", "preview"].includes(Updates.channel) ? {} : {
     //todo: remove when building
-    email: "emmanuelchinazangene2001@gmail.com",
-    // verificationSent: true,
-    emailVerificationId: "66458ece64396b3174497ab2",
-    persisted: false,
-    "user": {
-      "__v": 0,
-      "_id": "66491f83060e2bb329a1f51e",
-      "bio": "ME",
-      "createdAt": "2024-05-18T21:37:07.554Z",
-      "email": "emmanuelchinazangene2001@gmail.com",
-      "name": "EMMA",
-      "profileImageUrl": "https://res.cloudinary.com/duufslee0/image/upload/v1716068226/ccxqmy0iu5j41no1wwda.jpg",
-      "updatedAt": "2024-05-18T21:37:07.554Z"
-    },
-    lastPage: "join-community",
-    "currentCommunityId": "6649de63d86061a4a2391aee",
+    // email: "emmanuelchinazangene2001@gmail.com",
+    // // verificationSent: true,
+    // emailVerificationId: "66458ece64396b3174497ab2",
+    // persisted: false,
+    // "user": {
+    //   "__v": 0,
+    //   "_id": "66491f83060e2bb329a1f51e",
+    //   "bio": "ME",
+    //   "createdAt": "2024-05-18T21:37:07.554Z",
+    //   "email": "emmanuelchinazangene2001@gmail.com",
+    //   "name": "EMMA",
+    //   "profileImageUrl": "https://res.cloudinary.com/duufslee0/image/upload/v1716068226/ccxqmy0iu5j41no1wwda.jpg",
+    //   "updatedAt": "2024-05-18T21:37:07.554Z"
+    // },
+    // lastPage: "join-community",
+    // "currentCommunityId": "6649de63d86061a4a2391aee",
   })
 
   const updateAppState = useCallback(function (stateUpdate) {
@@ -57,7 +57,7 @@ export default function Layout() {
     // });
 
     updateAppData = updateAppState;
-    appData = appState;
+    // appData = appState;
 
     resetNavigationTo = (route) => {
       try {
@@ -90,12 +90,20 @@ export default function Layout() {
       console.log("dismissed")
     }
 
+    // clearAppData();
+
     AsyncStorage.getItem("app-data").then(storedAppState => {
+      console.log("stored app state", storedAppState)
       setAppState({
-        ...appState,
-        ...(JSON.parse(storedAppState) || {}),
+        ...(["production", "preview"].includes(Updates.channel) ? {
+          ...
+              appState,
+          ...
+              (JSON.parse(storedAppState) || {})
+        } : {}),
         loaded: true
       });
+      console.log("stored app state", storedAppState)
     })
   }, []);
 

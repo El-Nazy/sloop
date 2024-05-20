@@ -1,6 +1,6 @@
 import tw from "twrnc";
 import {Platform, Pressable, ScrollView, StatusBar, View,} from "react-native";
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {colors} from "../utils/constants";
 import {H2, UbuntuText} from "../components/Texts";
 import {router, useLocalSearchParams} from "expo-router";
@@ -12,11 +12,12 @@ import {axiosInstance} from "../utils/axios-instance";
 import {OnboardingNextButton} from "./on-boarding";
 import {Image} from "expo-image";
 import Joi from "joi";
-import {appData, updateAppData} from "./_layout";
+import {AppContext, updateAppData} from "./_layout";
 
 export default function () {
   const {email: emailParam} = useLocalSearchParams();
-  const [email, setEmail] = useState(emailParam || appData?.email || "");
+  const {appState} = useContext(AppContext)
+  const [email, setEmail] = useState(emailParam || appState?.email || "");
 
   const handleSubmit = async () => {
     if (!email) return alert("Please enter your email before you continue.");

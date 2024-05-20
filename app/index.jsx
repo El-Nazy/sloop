@@ -14,7 +14,7 @@ export default function () {
   if (!rootNavigationState?.key) return null;
 
   // keep loading until app state is loaded
-  // if (!appState?.loaded) return null;
+  if (!appState?.loaded) return null;
 
   if (appState?.lastPage) {
     return router.replace({pathname: appState.lastPage, params: appState});
