@@ -101,7 +101,7 @@ export default function () {
               Sloop will need to confirm your account.
             </UbuntuText>
           </View>
-          <View style={tw`w-full bg-white`}>
+          <View style={tw`w-full`}>
             <View style={{marginLeft: 8}}>
               <UbuntuText
                   style={{
@@ -198,7 +198,7 @@ export default function () {
               onPress={() => {
                 // router.navigate();
               }}
-              style={tw`flex-row justify-center px-[20px] py-[17px]  w-full items-center bg-white`}
+              style={tw`flex-row justify-center px-[20px] py-[17px] w-full items-center bg-white`}
               android_ripple={{
                 color: colors.newGray,
               }}
