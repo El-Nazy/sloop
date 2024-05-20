@@ -1,6 +1,7 @@
 import tw from "twrnc";
 import { StatusBar } from "expo-status-bar";
 import {
+  Platform,
   Pressable,
   SafeAreaView,
   View,
@@ -29,7 +30,7 @@ export default function () {
             marginBottom: 16,
           }}
         >
-          <H2>Welcome to Sloop</H2>
+          <H2>Welcome to Jovya</H2>
         </View>
         <View
           style={{
@@ -53,18 +54,29 @@ export default function () {
   );
 }
 
-export function OnboardingNextButton({ href, text = "CONTINUE", ...props }) {
+export function OnboardingNextButton({
+  handlePress,
+  href,
+  text = "CONTINUE",
+  ...props
+}) {
   return (
     <View style={tw`rounded-[12px] overflow-hidden mb-[32px] mt-4 w-full`}>
       <Pressable
-        onPress={() => {
+        onPress={async () => {
+          if (Platform.OS != "web" && handlePress) {
+            console.log("b4");
+            if (!(await handlePress())) return;
+            router.navigate(href);
+            console.log("ba4", href);
+          }
           router.navigate(href);
         }}
         style={{
           backgroundColor: colors.purple4,
         }}
         android_ripple={{
-          color: colors.newGray,
+          color: colors.purple,
           foreground: true,
         }}
         {...props}

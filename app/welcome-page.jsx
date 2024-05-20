@@ -1,34 +1,22 @@
-import { View, StatusBar } from "react-native";
-import React, { useEffect, useRef, useState } from "react";
-import { colors } from "../utils/constants";
-import { Image } from "expo-image";
-import { UbuntuText } from "../components/Texts";
-import { Link } from "expo-router";
-import { SafeArea } from "../components/SafeArea";
-import { CustomButton } from "../components/Buttons";
-import LoadingIconSvg from "../assets/white-stroked-loading-icon.svg";
-
-import * as SecureStore from "expo-secure-store";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import {View} from "react-native";
+import React from "react";
+import {colors} from "../utils/constants";
+import {Image} from "expo-image";
+import {UbuntuText} from "../components/Texts";
+import {Link} from "expo-router";
+import {SafeArea} from "../components/SafeArea";
+import {CustomButton} from "../components/Buttons";
+import Logo from "../components/icons/Logo";
+import {appData} from "./_layout";
 
 export default function () {
-  const [userImageUrl, setUserImageUrl] = useState("");
-
-  useEffect(() => {
-    AsyncStorage.getItem("user").then((user) => {
-      console.log(user);
-      setUserImageUrl(JSON.parse(user).profileImageUrl);
-      console.log(userImageUrl);
-    });
-  }, []);
-  
   return (
     <SafeArea backgroundColor={colors.purple4} barStyle="light">
       <View
         style={{
           position: "absolute",
-          right: 16,
-          top: 35 - (StatusBar.currentHeight || 0),
+          right: 20,
+          top: 35,
           width: 40,
           height: 40,
           borderRadius: 20,
@@ -42,12 +30,12 @@ export default function () {
             width: "100%",
             height: "100%",
           }}
-          source={userImageUrl || require("../assets/profileImage.png")}
+          source={appData?.user?.profileImageUrl || require("../assets/profileImage.png")}
         />
       </View>
-      <View style={{ justifyContent: "center", flex: 1 }}>
+      <View style={{justifyContent: "center", flex: 1}}>
         <View>
-          <LoadingIconSvg />
+          <Logo white/>
         </View>
       </View>
       <View
@@ -60,8 +48,8 @@ export default function () {
           alignItems: "center",
         }}
       >
-        <View style={{ width: 171 }}>
-          <View style={{ marginBottom: 30 }}>
+        <View style={{width: "80%", gap: 12}}>
+          <View style={{marginBottom: 30 - 12}}>
             <UbuntuText
               weight={500}
               style={{
@@ -70,27 +58,25 @@ export default function () {
                 textAlign: "center",
               }}
             >
-              Welcome to your Growth hub
+              Welcome to your{"\n"}Growth hub
             </UbuntuText>
           </View>
-          <Link
-            href={"/new-community"}
-            asChild
-            style={{
-              backgroundColor: colors.purple4,
-              borderRadius: 17,
-              alignItems: "center",
-              justifyContent: "center",
-              height: 35,
-              marginBottom: 8,
-            }}
-          >
-            <CustomButton>
+          <Link href={"/new-community"} asChild>
+            <CustomButton
+              borderRadius={12}
+              style={{
+                backgroundColor: colors.purple4,
+                borderRadius: 12,
+                alignItems: "center",
+                justifyContent: "center",
+                height: 38,
+                // marginBottom: 8,
+              }}
+            >
               <UbuntuText
-                weight={500}
                 style={{
                   fontSize: 14,
-                  lineHeight: 14.4,
+                  lineHeight: 18,
                   color: colors.white,
                 }}
               >
@@ -98,31 +84,36 @@ export default function () {
               </UbuntuText>
             </CustomButton>
           </Link>
-          <Link
-            href={"/join-community"}
-            asChild
-            style={{
-              borderColor: colors.purple4,
-              borderWidth: 2,
-              borderRadius: 17,
-              alignItems: "center",
-              justifyContent: "center",
-              height: 35,
-            }}
-          >
-            <CustomButton>
-              <UbuntuText
-                weight={500}
+          <View style={{marginHorizontal: 8}}>
+            <Link
+              href={"/join-community"}
+              asChild
+              // style={{ marginHorizontal: 8 }}
+            >
+              <CustomButton
+                borderRadius={12}
                 style={{
-                  fontSize: 14,
-                  lineHeight: 14.4,
-                  color: colors.purple4,
+                  borderColor: colors.purple4,
+                  borderWidth: 2,
+                  borderRadius: 12,
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: 38,
+                  // marginHorizontal: 8,
                 }}
               >
-                Join a community
-              </UbuntuText>
-            </CustomButton>
-          </Link>
+                <UbuntuText
+                  style={{
+                    fontSize: 14,
+                    lineHeight: 18,
+                    color: colors.purple4,
+                  }}
+                >
+                  Join a community
+                </UbuntuText>
+              </CustomButton>
+            </Link>
+          </View>
         </View>
       </View>
     </SafeArea>

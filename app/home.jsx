@@ -1,71 +1,72 @@
-import { View, Text, ScrollView } from "react-native";
+import {View} from "react-native";
 import tw from "twrnc";
-import { Frame } from "../assets/Frame.svg";
-import { colors } from "../utils/constants";
-import { Image } from "expo-image";
-import { UbuntuText } from "../components/Texts";
+import {UbuntuText} from "../components/Texts";
 import Notification from "../assets/basil_notification-outline.svg";
 import Search from "../assets/Icon.svg";
 import Horizontal from "../assets/mi_options-vertical.svg";
-import Picture from "../assets/picture.svg";
-import Dotted from "../assets/dotted.svg";
-import Comment from "../assets/comment.svg";
-import Like from "../assets/like.svg";
-import { PostDetail } from "../components/PostDetail";
-import { GroupDetail } from "../components/GroupDetail";
-import { UpcomingEvent } from "../components/UpcomingEvent";
+import {GroupDetail} from "../components/GroupDetail";
+import {SafeArea} from "../components/SafeArea";
 
 export default function () {
   return (
-    <>
-      <View style={tw`flex-1 bg-white`}>
-        <View style={tw`flex flex-row justify-between`}>
+      <SafeArea>
+        <View style={tw`flex-1 w-full bg-white`}>
+          <View style={tw`flex flex-row justify-between items-center pl-[18px] pr-2 py-2`}>
+            <View
+                style={[tw`rounded-[12px] px-1 bg-white mx-1 flex flex-row gap-1`, {
+                  shadowOpacity: 0.04,
+                  shadowRadius: 12,
+                  shadowOffset: {
+                    width: 2,
+                    height: 2,
+                  },
+                  shadowColor: "#000000aa",
+                  elevation: 2,
+                }]}
+            >
+              <View style={tw`rounded-[12px] bg-[#E2E200] h-11 w-[42px] justify-center`}>
+                <UbuntuText
+                    weight={500}
+                    style={tw`text-center text-[20px]`}
+                >
+                  C
+                </UbuntuText>
+              </View>
+
+              <UbuntuText weight={500} style={tw`text-[20px]`}>
+                GracevilleCC
+              </UbuntuText>
+            </View>
+
+            <View style={tw`flex flex-row gap-5 my-2 items-center`}>
+              <Notification/>
+              <Search/>
+              <Horizontal/>
+            </View>
+          </View>
           <View
-            style={tw`px-5 bg-white  my-3 mx-1 rounded-lg flex flex-row gap-3  shadow-md`}
+              style={tw`flex flex-row p-3 mb-3 justify-between bg-white border-b-[#30084F]`}
           >
-            <View style={tw` rounded bg-[#E2E200] h-7 w-6 -mx-4`}>
-              <UbuntuText
-                weight={500}
-                style={tw`font-bold text-center   text-2xl -my-0.5`}
-              >
-                C
-              </UbuntuText>
-            </View>
-
-            <UbuntuText style={tw`font-bold my-1 mx-2 text-[15px]`}>
-              GracevilleCC
+            <UbuntuText weight={500} style={tw`font-bold text-[#040009]`}>
+              Updates
             </UbuntuText>
-          </View>
+            <UbuntuText style={tw`border-b border-[#]`}>
+              Groups
+              <View style={tw`bg-[#30084F] rounded-full mx-0.5 `}>
+                <UbuntuText
+                    style={tw`text-[#FEFEFE] text-[10px] mx-0.5 text-center`}
+                >
+                  99+
+                </UbuntuText>
+              </View>
+            </UbuntuText>
 
-          <View style={tw`flex flex-row gap-5 my-2`}>
-            <Notification />
-            <Search />
-            <Horizontal />
+            <UbuntuText>People</UbuntuText>
+          </View>
+          <View style={tw`flex-1`}>
+            <GroupDetail/>
           </View>
         </View>
-        <View
-          style={tw`flex flex-row p-3 my-3 justify-between bg-white shadow border-b-[#30084F]`}
-        >
-          <UbuntuText weight={500} style={tw`font-bold text-[#040009]`}>
-            UPdates
-          </UbuntuText>
-          <UbuntuText style={tw`border-b border-[#]`}>
-            Groups
-            <View style={tw`bg-[#30084F] rounded-full mx-0.5 `}>
-              <UbuntuText
-                style={tw`text-[#FEFEFE] text-[10px] mx-0.5 text-center`}
-              >
-                99+
-              </UbuntuText>
-            </View>
-          </UbuntuText>
-
-          <UbuntuText>People</UbuntuText>
-        </View>
-        <View style={tw`flex-1`}>
-          <GroupDetail />
-        </View>
-      </View>
-    </>
+      </SafeArea>
   );
 }

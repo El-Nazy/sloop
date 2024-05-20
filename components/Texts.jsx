@@ -28,6 +28,7 @@ export function UbuntuText({ weight = 400, style, children, ...restProps }) {
           fontFamily: fontWeights[weight],
           color: colors.black,
           verticalAlign: "middle",
+          // fontSize: 14,
         },
         style,
       ]}

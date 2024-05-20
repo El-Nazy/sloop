@@ -2,7 +2,7 @@ import { View, Text, ScrollView } from "react-native";
 import React, { useState, useEffect } from "react";
 import tw from "twrnc";
 import Back from "../assets/arrow_white.svg";
-import Message from "../assets/Group31.svg";
+// import Message from "../assets/Group31.svg";
 import Down from "../assets/down.svg";
 import Vertical from "../assets/vertical.svg";
 import { UbuntuText } from "../components/Texts";

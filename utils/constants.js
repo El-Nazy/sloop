@@ -25,7 +25,6 @@ export const colors = Object.freeze({
   newGray1: "#AFA9B2",
 });
 // #AFA9B2
-export const appName = "sLOOP";
+export const appName = "Jovya";
 
-export const apiBaseUrl = "https://rabbit-honest-ibex.ngrok-free.app/api/v1";
-// export const apiBaseUrl = "https://google.com";
+export const apiBaseUrl = process.env.EXPO_PUBLIC_API_URL;

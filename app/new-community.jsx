@@ -1,18 +1,18 @@
-import { View } from "react-native";
+import {View} from "react-native";
 import React from "react";
-import { colors } from "../utils/constants";
-import { Image } from "expo-image";
-import { UbuntuText } from "../components/Texts";
-import { Link } from "expo-router";
-import { SafeArea } from "../components/SafeArea";
-import { CustomButton } from "../components/Buttons";
-import WhiteBackIconSvg from "../assets/white-back-icon.svg";
+import {colors} from "../utils/constants";
+import {Image} from "expo-image";
+import {UbuntuText} from "../components/Texts";
+import {Link} from "expo-router";
+import {SafeArea} from "../components/SafeArea";
+import {CustomButton} from "../components/Buttons";
+import {Back} from "../components/icons/Back";
 
 export default function () {
   return (
     <SafeArea
-      statusProps={{ backgroundColor: colors.purple }}
-      viewStyle={{ justifyContent: "center" }}
+      statusProps={{backgroundColor: colors.purple4}}
+      viewStyle={{justifyContent: "center"}}
       barStyle="light"
     >
       <Image
@@ -21,7 +21,7 @@ export default function () {
           maxWidth: "100%",
           height: 421.62,
           position: "absolute",
-          // top: 0,
+          top: 80,
         }}
         source={require("../assets/group-discussion.png")}
       />
@@ -33,19 +33,18 @@ export default function () {
           width: "100%",
           backgroundColor: colors.purple4,
           flexDirection: "row",
-          paddingHorizontal: 16,
+          paddingHorizontal: 8,
           height: 62,
           alignItems: "center",
-          gap: 16,
+          gap: 8,
         }}
       >
-        <Link href={"/welcome-page"} asChild>
-          <WhiteBackIconSvg />
-        </Link>
+        <Back light prevHref="/welcome-page"/>
+
         <View>
           <UbuntuText
             weight={500}
-            style={{ fontSize: 20, color: colors.white }}
+            style={{fontSize: 20, color: colors.white}}
           >
             New Community
           </UbuntuText>
@@ -67,10 +66,11 @@ export default function () {
           <UbuntuText
             weight={500}
             style={{
-              // lineHeight: 24,
+              lineHeight: 24,
               fontSize: 20,
               color: colors.white,
               paddingHorizontal: 15,
+              marginBottom: 28,
             }}
           >
             Welcome to your growth hub!
@@ -83,29 +83,29 @@ export default function () {
           }}
         >
           <View
-            style={{ flexDirection: "row", gap: 7, alignContent: "flex-start" }}
+            style={{flexDirection: "row", gap: 7, alignItems: "flex-start"}}
           >
             <UbuntuText
-              style={{ fontSize: 12, lineHeight: 14.4, color: colors.white }}
+              style={{fontSize: 14, lineHeight: 18, color: colors.white}}
             >
               •
             </UbuntuText>
             <UbuntuText
-              style={{ fontSize: 12, lineHeight: 14.4, color: colors.white }}
+              style={{fontSize: 14, lineHeight: 18, color: colors.white}}
             >
               Share resources and expertise.
             </UbuntuText>
           </View>
           <View
-            style={{ flexDirection: "row", gap: 7, alignContent: "flex-start" }}
+            style={{flexDirection: "row", gap: 7, alignItems: "flex-start"}}
           >
             <UbuntuText
-              style={{ fontSize: 12, lineHeight: 14.4, color: colors.white }}
+              style={{fontSize: 14, lineHeight: 18, color: colors.white}}
             >
               •
             </UbuntuText>
             <UbuntuText
-              style={{ fontSize: 12, lineHeight: 14.4, color: colors.white }}
+              style={{fontSize: 14, lineHeight: 18, color: colors.white}}
             >
               Gain access to knowledge, skills, and expertise from other
               members. Communities often offer workshops, discussions, and other
@@ -113,15 +113,15 @@ export default function () {
             </UbuntuText>
           </View>
           <View
-            style={{ flexDirection: "row", gap: 7, alignContent: "flex-start" }}
+            style={{flexDirection: "row", gap: 7, alignItems: "flex-start"}}
           >
             <UbuntuText
-              style={{ fontSize: 12, lineHeight: 14.4, color: colors.white }}
+              style={{fontSize: 14, lineHeight: 18, color: colors.white}}
             >
               •
             </UbuntuText>
             <UbuntuText
-              style={{ fontSize: 12, lineHeight: 14.4, color: colors.white }}
+              style={{fontSize: 14, lineHeight: 18, color: colors.white}}
             >
               Ready to Dive In? Explore, Learn, Belong!
             </UbuntuText>
@@ -136,19 +136,18 @@ export default function () {
           right: 16,
         }}
       >
-        <Link
-          href={"/new-community2"}
-          asChild
-          style={{
-            backgroundColor: colors.purple4,
-            borderRadius: 12,
-            paddingHorizontal: 30,
-            justifyContent: "center",
-            alignItems: "center",
-            height: 44,
-          }}
-        >
-          <CustomButton>
+        <Link href={"/new-community2"} asChild>
+          <CustomButton
+            borderRadius={12}
+            style={{
+              backgroundColor: colors.purple4,
+              borderRadius: 12,
+              paddingHorizontal: 30,
+              justifyContent: "center",
+              alignItems: "center",
+              height: 44,
+            }}
+          >
             <UbuntuText
               weight={500}
               style={{

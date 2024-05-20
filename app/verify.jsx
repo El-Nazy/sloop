@@ -1,29 +1,18 @@
-import { OnboardingNextButton } from "./on-boarding";
+import {OnboardingNextButton} from "./on-boarding";
 import tw from "twrnc";
-import {
-  Button,
-  Pressable,
-  SafeAreaView,
-  TouchableHighlight,
-  TouchableOpacity,
-  StatusBar,
-  View,
-  ScrollView,
-} from "react-native";
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { apiBaseUrl, appName, colors } from "../utils/constants";
-import { Image } from "expo-image";
-import { H2, UbuntuText } from "../components/Texts";
-import { Link } from "expo-router";
-import { SafeArea } from "../components/SafeArea";
-import { CustomButton } from "../components/Buttons";
-import { UbuntuTextInput } from "../components/UbuntuTextInput";
-import BackArrowSvg from "../assets/back-arrow.svg";
-import { useLocalSearchParams, router } from "expo-router";
-import { OtpInput } from "react-native-otp-entry";
-import { useFonts } from "expo-font";
-import { axiosInstance } from "../utils/axios-instance";
-import { storeUser } from "../utils/user-utils";
+import {Platform, ScrollView, StatusBar, View,} from "react-native";
+import React, {useContext, useState} from "react";
+import {appName, colors} from "../utils/constants";
+import {H2, UbuntuText} from "../components/Texts";
+import {router, useLocalSearchParams} from "expo-router";
+import {SafeArea} from "../components/SafeArea";
+import {CustomButton} from "../components/Buttons";
+import {OtpInput} from "react-native-otp-entry";
+import {useFonts} from "expo-font";
+import {axiosInstance} from "../utils/axios-instance";
+import {Back} from "../components/icons/Back";
+import {AppContext} from "./_layout";
+import {saveAuthToken} from "../utils/user-utils";
 
 const codeLength = 4;
 
@@ -31,102 +20,131 @@ export default function () {
   const [fontsLoaded, fontError] = useFonts({
     "Ubuntu-Regular": require("../assets/fonts/Ubuntu-Regular.ttf"),
   });
+  const {updateAppState} = useContext(AppContext);
 
-  const { email } = useLocalSearchParams();
-  const [otp, setOtp] = useState("");
+  const {email} = useLocalSearchParams();
+  console.log("in verify", email);
+
+  if (!email) return router.replace("/sign-in");
+
+  const [otpText, setOtpText] = useState("");
   const [codeArr, setCodeArr] = useState(
-    Array.from({ length: codeLength }, () => "")
+    Array.from({length: codeLength}, () => "")
   );
   // const codeInputsRefs = Array.from({ length: codeLength }, () => useRef(null));
 
-  const handleCodeInput = (code, index) => {
-    if (!code) return;
+  // const handleCodeInput = (code, index) => {
+  //   if (!code) return;
 
-    if (code.length == 2) {
-      if (code[0] == code[1]) {
-        codeArr[index] = code[0];
-      }
-      if (code[0] != code[1]) {
-        codeArr[index] = code[0] == codeArr[index] ? code[1] : code[0];
-      }
-    } else {
-      codeArr[index] = code[code.length - 1];
-    }
-    setCodeArr([...codeArr]);
+  //   if (code.length == 2) {
+  //     if (code[0] == code[1]) {
+  //       codeArr[index] = code[0];
+  //     }
+  //     if (code[0] != code[1]) {
+  //       codeArr[index] = code[0] == codeArr[index] ? code[1] : code[0];
+  //     }
+  //   } else {
+  //     codeArr[index] = code[code.length - 1];
+  //   }
+  //   setCodeArr([...codeArr]);
 
-    if (index < codeLength - 1) {
-      codeInputsRefs[index + 1].current.focus();
-    }
+  //   if (index < codeLength - 1) {
+  //     codeInputsRefs[index + 1].current.focus();
+  //   }
 
-    console.log(codeArr);
+  //   console.log(codeArr);
 
-    handleVerify();
-  };
+  //   handleVerify();
+  // };
+  const handleSubmit = () => {
+    // setOtpText(otp);
+    handleVerify(otpText)
+  }
   const handleVerify = async (otp) => {
-    return router.navigate({
-      pathname: "/profile-setup",
-      // params: { emailVerificationId },
-    });
-    console.log(otp, email);
+    // return router.navigate({
+    //   pathname: "/profile-setup",
+    //   // params: { emailVerificationId },
+    // });
+    if (otp.length < 4) return alert(`Enter the OTP sent to ${email}`);
+    let res
     try {
-      const res = await fetch(apiBaseUrl + "/auth/verify-otp", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
+      res = await axiosInstance.post(
+        "/auth/verify-otp",
+        {
           email,
-          // email: "emmanuelchinazangene@gmail.com",
+          // email: "emmanuelchinazangene2001@gmail.com",
           otp,
-        }),
-      });
-
-      const data = await res.json();
-      console.log("rec", data);
-      const { emailVerificationId } = data;
-
-      // console.log("submitted", otpId);
-      console.log("received", data);
-      if (data.emailVerificationId) {
-        router.navigate({
-          pathname: "/profile-setup",
-          params: { emailVerificationId },
-        });
-        return;
-      } else if (data.token) {
-        router.replace("welcome-page");
-        storeUser(data);
-        // todo: implement sign in when token is received
-        // check for community in data.user and navigate to it
-        // or navigate to community creation/joining if no community
-        return;
-      }
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            // Add any additional headers if required
+          },
+        }
+      );
+      console.log("submitted");
     } catch (err) {
       // todo: specify reason
-      console.error(err);
-      console.log(err);
-      return alert("failed verification");
+      // console.error(err);
+      console.log("error", JSON.stringify(err, null, 2));
+      // return alert("failed verification");
+      console.log("type of error", err);
+      return alert(
+        err?.response?.data?.message ||
+        err?.message ||
+        "An error ocurred, please try again later if error persists"
+      );
     }
-    return alert("failed verification");
+
+    console.log("res", res);
+    const data = await res.data;
+    console.log("rec", data);
+    const {emailVerificationId} = data;
+
+    // console.log("submitted", otpId);
+    console.log("received", data);
+
+    if (data?.emailVerificationId) {
+      router.navigate({
+        pathname: "/profile-setup",
+        params: {emailVerificationId},
+      });
+      updateAppState({
+        emailVerificationId,
+      })
+      return;
+      // router.
+    } else if (data?.authToken && data?.user) {
+      router.replace("welcome-page");
+      updateAppState({
+        user: data.user,
+      })
+      saveAuthToken(authToken);
+      // SecureStore.setItemAsync("auth-token", authToken);
+      // storeUser(data);
+      // todo: implement sign in when token is received
+      // check for community in data.user and navigate to it
+      // or navigate to community creation/joining if no community
+      return;
+    }
+
+    return alert("Invalid or expired code. Please try again.");
   };
 
   return (
-    <SafeArea viewStyle={tw`px-4`}>
+    <SafeArea viewStyle={tw`px-5`}>
       <ScrollView
         style={tw`w-full`}
-        contentContainerStyle={tw`items-center px-8`}
+        contentContainerStyle={tw`items-center`}
       >
         <View
           style={{
             position: "absolute",
-            left: 16,
+            left: 8,
             top: 39 - (StatusBar.currentHeight || 0),
           }}
         >
-          <Link replace href={"/sign-in"} asChild>
-            <BackArrowSvg />
-          </Link>
+          <Back prevHref="/sign-in"/>
         </View>
         <View
           style={{
@@ -139,7 +157,6 @@ export default function () {
         <View
           style={{
             marginBottom: 30,
-            width: 226,
           }}
         >
           <UbuntuText
@@ -150,7 +167,8 @@ export default function () {
               textAlign: "center",
             }}
           >
-            {appName} has sent a 4-digits confirmation code to {email}
+            {appName} has sent a 4-digits confirmation code to
+            {"\n" + email}
           </UbuntuText>
         </View>
         <View
@@ -165,7 +183,7 @@ export default function () {
               onFilled={handleVerify}
               numberOfDigits={codeLength}
               // focusColor={colors.purple}
-              onTextChange={setOtp}
+              onTextChange={setOtpText}
               hideStick={true}
               theme={{
                 inputsContainerStyle: {
@@ -180,10 +198,10 @@ export default function () {
                   borderWidth: 0,
                   borderColor: colors.purple,
                   borderRightWidth: 2,
-                  transform: [{ rotate: "90deg" }],
+                  transform: [{rotate: "90deg"}],
                 },
                 pinCodeTextStyle: {
-                  transform: [{ rotate: "-90deg" }],
+                  transform: [{rotate: "-90deg"}],
                   fontFamily: "Ubuntu-Regular",
                   color: colors.black,
                   fontSize: 20,
@@ -206,21 +224,25 @@ export default function () {
           );
         })} */}
         </View>
-        <View
+        <CustomButton
+          onPress={() => router.replace({pathname: "/sign-in", params: {email}})}
           style={{
             marginBottom: 60,
+            padding: 8,
           }}
         >
-          <UbuntuText
-            style={{
-              fontSize: 12,
-              lineHeight: 14.4,
-              color: colors.purple4,
-            }}
-          >
-            RESEND CODE
-          </UbuntuText>
-        </View>
+          <View>
+            <UbuntuText
+              style={{
+                fontSize: 12,
+                lineHeight: 14.4,
+                color: colors.purple4,
+              }}
+            >
+              RESEND CODE
+            </UbuntuText>
+          </View>
+        </CustomButton>
       </ScrollView>
       {/* <CustomButton
         style={{
@@ -231,7 +253,7 @@ export default function () {
           alignItems: "center",
           height: 30,
         }}
-        onPress={() => handleVerify(otp)}
+        onPress={() => handleVerify(otpText)}
       >
         <UbuntuText
           weight={500}
@@ -244,35 +266,41 @@ export default function () {
           CONTINUE
         </UbuntuText>
       </CustomButton> */}
-      <OnboardingNextButton replace href="profile-setup" text="CONFIRM" />
+      <OnboardingNextButton
+        replace
+        {...(Platform.OS == "web"
+          ? {href: "profile-setup"}
+          : {onPress: handleSubmit})}
+        text="CONFIRM"
+      />
     </SafeArea>
   );
 }
 
-const CircleInput = React.forwardRef(({ ...props }, ref) => {
-  return (
-    <View
-      style={{
-        width: 42,
-        height: 42,
-        borderRadius: 21,
-        borderColor: colors.purple2,
-        borderRightWidth: 2,
-        transform: [{ rotate: "90deg" }],
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <UbuntuTextInput
-        style={{ textAlign: "center", transform: [{ rotate: "-90deg" }] }}
-        inputMode={"numeric"}
-        keyboardType={"number-pad"}
-        // caretHidden={true}
-        maxLength={1}
-        selectTextOnFocus={true}
-        ref={ref}
-        {...props}
-      />
-    </View>
-  );
-});
+// const CircleInput = React.forwardRef(({ ...props }, ref) => {
+//   return (
+//     <View
+//       style={{
+//         width: 42,
+//         height: 42,
+//         borderRadius: 21,
+//         borderColor: colors.purple2,
+//         borderRightWidth: 2,
+//         transform: [{ rotate: "90deg" }],
+//         justifyContent: "center",
+//         alignItems: "center",
+//       }}
+//     >
+//       <UbuntuTextInput
+//         style={{ textAlign: "center", transform: [{ rotate: "-90deg" }] }}
+//         inputMode={"numeric"}
+//         keyboardType={"number-pad"}
+//         // caretHidden={true}
+//         maxLength={1}
+//         selectTextOnFocus={true}
+//         ref={ref}
+//         {...props}
+//       />
+//     </View>
+//   );
+// });

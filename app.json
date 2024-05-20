@@ -6,11 +6,15 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "backgroundColor": "#FEFEFE",
+    "primaryColor": "#7A1EF7",
     "splash": {
       "backgroundColor": "#FEFEFE",
       "image": "./assets/splash-screen.png"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -33,7 +37,12 @@
       "output": "static"
     },
     "plugins": [
-      "expo-router",
+      [
+        "expo-router",
+        {
+          "origin": "https://app.jovya.ng"
+        }
+      ],
       [
         "expo-image-picker",
         {

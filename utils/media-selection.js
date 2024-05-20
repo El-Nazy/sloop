@@ -20,7 +20,7 @@ export const handleImageSelection = async () => {
     allowsEditing: true,
     aspect: [1, 1],
     mediaTypes: ImagePicker.MediaTypeOptions.Images,
-    quality: 0,
+    quality: 1,
     cameraType: ImagePicker.CameraType.front,
   });
   console.log("pres", pickerResult);

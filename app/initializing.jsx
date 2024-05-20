@@ -3,7 +3,7 @@ import React from "react";
 import { colors } from "../utils/constants";
 import { UbuntuText } from "../components/Texts";
 import { SafeArea } from "../components/SafeArea";
-import LoadingIconSvg from "../assets/loading-icon.svg";
+import Logo from "../components/icons/Logo";
 
 export default function () {
   return (
@@ -16,15 +16,15 @@ export default function () {
       >
         <UbuntuText
           weight={500}
-          style={{ fontSize: 14, lineHeight: 14.4, color: colors.purple2 }}
+          style={{ fontSize: 16, lineHeight: 19.2, color: colors.purple4 }}
         >
           Initializing
         </UbuntuText>
       </View>
       <UbuntuText
         style={{
-          fontSize: 12,
-          lineHeight: 14.4,
+          fontSize: 16,
+          lineHeight: 19.2,
           color: colors.gray2,
         }}
       >
@@ -39,7 +39,7 @@ export default function () {
           justifyContent: "center",
         }}
       >
-        <LoadingIconSvg />
+        <Logo />
       </View>
     </SafeArea>
   );

@@ -1,21 +1,58 @@
-import { StyleSheet } from "react-native";
-import React from "react";
-import { useRootNavigationState, Redirect } from "expo-router";
-import * as SecureStore from "expo-secure-store";
-// import AsyncStorage from "@react-native-async-storage/async-storage";
-import { storeUser } from "../utils/user-utils";
+import React, {useContext} from "react";
+import {Redirect, router, useRootNavigationState} from "expo-router";
+import {AppContext} from "./_layout";
 
 export default function () {
   // router.replace("/on-boarding");
   const rootNavigationState = useRootNavigationState();
+  // const [appState, setAppState] = useState(null)
+  // return <Redirect href={"/new-community2"} />;
 
+  const {appState} = useContext(AppContext);
+
+  console.log("second", appState)
   if (!rootNavigationState?.key) return null;
+
+  // keep loading until app state is loaded
+  // if (!appState?.loaded) return null;
+
+  if (appState?.lastPage) {
+    return router.replace({pathname: appState.lastPage, params: appState});
+  }
+
+  if (
+      appState?.user &&
+      (appState?.communityMemberships || appState?.currentCommunityId)
+  ) {
+    console.log("has community")
+    return router.replace({pathname: "/home", params: appState});
+  }
+
+  if (appState?.user) {
+    return router.replace({pathname: "/welcome-page", params: appState});
+  }
+
+  if (appState?.emailVerificationId) {
+    return router.replace({pathname: "/profile-setup", params: appState});
+  }
+
+  if (appState?.email && appState?.verificationSent) {
+    return router.replace({pathname: "/verify", params: appState});
+  }
+
+  if (appState?.email) {
+    return router.replace({pathname: "/sign-in", params: appState});
+  }
+
   // console.log("\n\n\nhere\n\n\n");
-  return <Redirect href={"/on-boarding"} />;
-  // return <Redirect href={"/sign-in"} />;
+  return <Redirect href={"/on-boarding"}/>;
   // return <Redirect href={"/verify"} />;
-  // TODO: CONTINUE TO FIX UP PROFILE SETUP
   // return <Redirect href={"/profile-setup"} />;
+  // return <Redirect href={"/initializing"} />;
+  // return <Redirect href={"/welcome-page"} />;
+  // return <Redirect href={"/new-community"} />;
+  // return <Redirect href={"/join-community"} />;
+  // return <Redirect href={"/request-sent"} />;
   // return <Redirect href={"/home"} />;
   // return <Redirect href={"/welcome-group"} />;
   // return <Redirect href={"/event"} />;

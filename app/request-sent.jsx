@@ -29,6 +29,7 @@ export default function () {
           lineHeight: 24,
           textAlign: "center",
           width: "100%",
+          padding: 16,
         }}
       >
         Your request to join Graceville Christian Center has been sent to an

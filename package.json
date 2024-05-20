@@ -11,7 +11,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build": "expo export --platform web",
-    "android:dev:build": "eas build --profile development --platform android",
+    "build:web": "expo export --platform web",
+    "build:android:dev": "eas build --profile development --platform android",
+    "build:android:prev": "eas build --profile preview --platform android",
     "prepare": "husky",
     "postinstall": "husky"
   },
@@ -26,6 +28,7 @@
     "@react-native-firebase/messaging": "^19.2.2",
     "@react-navigation/native": "^6.1.9",
     "@react-navigation/native-stack": "^6.9.17",
+    "@reduxjs/toolkit": "^2.2.4",
     "axios": "^1.6.7",
     "crypto": "^1.0.1",
     "crypto-browserify": "^3.12.0",
@@ -47,7 +50,9 @@
     "expo-secure-store": "~13.0.1",
     "expo-splash-screen": "~0.27.4",
     "expo-status-bar": "~1.12.1",
+    "expo-system-ui": "~3.0.4",
     "expo-updates": "~0.25.11",
+    "joi": "^17.13.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-native": "0.74.1",
@@ -63,6 +68,7 @@
     "react-native-screens": "3.31.1",
     "react-native-svg": "15.2.0",
     "react-native-web": "~0.19.6",
+    "react-redux": "^9.1.2",
     "twrnc": "^4.0.0"
   },
   "devDependencies": {
