@@ -2,7 +2,7 @@ import {Slot, useNavigation} from 'expo-router';
 import {createContext, useCallback, useEffect, useState} from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {CommonActions} from "@react-navigation/native";
-import * as Updates from "expo-updates";
+import Constants, {AppOwnership} from "expo-constants";
 
 export const AppContext = createContext();
 export let updateAppData = () => {
@@ -15,8 +15,8 @@ export let resetNavigationTo = () => {
 
 export default function Layout() {
   const navigation = useNavigation();
-
-  const [appState, setAppState] = useState(["production", "preview"].includes(Updates.channel) ? {} : {
+  console.log("consts, owner, env", Constants.appOwnership, Constants.executionEnvironment)
+  const [appState, setAppState] = useState(Constants.appOwnership === AppOwnership.Expo ? {
     //todo: remove when building
     // email: "emmanuelchinazangene2001@gmail.com",
     // // verificationSent: true,
@@ -34,7 +34,7 @@ export default function Layout() {
     // },
     // lastPage: "join-community",
     // "currentCommunityId": "6649de63d86061a4a2391aee",
-  })
+  } : {})
 
   const updateAppState = useCallback(function (stateUpdate) {
     console.log("old app state", appState)
@@ -94,13 +94,14 @@ export default function Layout() {
 
     AsyncStorage.getItem("app-data").then(storedAppState => {
       console.log("stored app state", storedAppState)
+      if (Constants.appOwnership === AppOwnership.Expo) {
+        return setAppState({
+          loaded: true,
+        })
+      }
       setAppState({
-        ...(["production", "preview"].includes(Updates.channel) ? {
-          ...
-              appState,
-          ...
-              (JSON.parse(storedAppState) || {})
-        } : {}),
+        ...appState,
+        ...(JSON.parse(storedAppState) || {}),
         loaded: true
       });
       console.log("stored app state", storedAppState)
